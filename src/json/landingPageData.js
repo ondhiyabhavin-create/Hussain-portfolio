@@ -38,22 +38,55 @@ import UIUX2 from "../assets/images/TeamMembers/UIUX2.jpg";
 // Personal Services
 export const Services = [
   {
+    id: "service1",
     title: "Oracle DBA & RAC",
     imageUrl: Web,
     animation: "left",
     description: "Oracle database administration, RAC implementation, and disaster recovery solutions",
+    detailedDescription: "Comprehensive Oracle Database Administration and Real Application Clusters (RAC) services. I provide end-to-end solutions for Oracle database management, including installation, configuration, performance tuning, and high availability setup. My expertise includes Oracle RAC implementation for zero-downtime operations, ASM (Automatic Storage Management) configuration, and disaster recovery solutions using Data Guard.",
+    features: [
+      "Oracle Database Installation & Configuration",
+      "RAC Cluster Setup & Management",
+      "ASM Storage Management",
+      "Performance Tuning & Optimization",
+      "Backup & Recovery Strategies",
+      "Disaster Recovery Planning",
+    ],
+    technologies: ["Oracle Database (9i-21c)", "RAC", "ASM", "Data Guard", "RMAN"],
   },
   {
+    id: "service2",
     title: "GoldenGate Replication",
     imageUrl: Mobile,
     animation: "up",
     description: "Real-time data replication and synchronization using Oracle GoldenGate",
+    detailedDescription: "Expert Oracle GoldenGate implementation for real-time data replication and synchronization across heterogeneous database environments. I design and implement high-performance replication solutions that ensure data consistency, minimize latency, and support zero-downtime migrations. My services include GoldenGate architecture design, performance optimization, and troubleshooting complex replication scenarios.",
+    features: [
+      "Real-time Data Replication",
+      "Heterogeneous Database Support",
+      "Zero-Downtime Migrations",
+      "Conflict Detection & Resolution",
+      "Performance Optimization",
+      "Monitoring & Troubleshooting",
+    ],
+    technologies: ["Oracle GoldenGate", "Oracle Database", "SQL Server", "MySQL"],
   },
   {
+    id: "service3",
     title: "Cloud Migration & DevOps",
     imageUrl: UIUX,
     animation: "right",
     description: "OCI/Azure migration, WebLogic administration, and DevOps automation",
+    detailedDescription: "End-to-end cloud migration services and DevOps automation for database infrastructure. I help organizations migrate their database workloads to Oracle Cloud Infrastructure (OCI) and Azure, ensuring minimal downtime and optimal performance. Additionally, I implement DevOps practices using Jenkins, GitLab CI, Ansible, and Terraform to automate database operations and improve deployment efficiency.",
+    features: [
+      "OCI & Azure Cloud Migration",
+      "WebLogic Administration",
+      "Infrastructure as Code (Terraform)",
+      "CI/CD Pipeline Setup",
+      "Automated Deployment",
+      "Cloud Cost Optimization",
+    ],
+    technologies: ["OCI", "Azure SQL", "WebLogic", "Jenkins", "GitLab CI", "Ansible", "Terraform"],
   },
 ];
 

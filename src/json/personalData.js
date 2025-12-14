@@ -14,7 +14,7 @@ export const PersonalInfo = {
   ],
   bio: 'A dedicated database consultant passionate about designing, securing, and optimizing mission-critical database systems. I love working on projects that make a bigger impact in enterprise environments. You will also find me exploring new technologies and continuously learning to stay at the forefront of database technology.',
   personalDetails: {
-    birthday: 'Not specified',
+    birthday: '1982-04-04',
     age: 'Not specified',
     website: '',
     email: 'nswaknwj@gmail.com',
@@ -22,11 +22,26 @@ export const PersonalInfo = {
     phone: '+966556024406',
     city: 'Riyadh',
     freelance: 'Available',
-    nationality: 'Saudi Arabia',
-    languages: ['English', 'Arabic', 'Urdu'],
+    nationality: 'Indian',
+    maritalStatus: 'Married',
+    languages: ['English', 'Arabic'],
     interests: ['Database Architecture', 'Cloud Technologies', 'DevOps Automation', 'Performance Optimization'],
     availability: 'Available for consulting projects and long-term engagements',
   },
+  education: [
+    {
+      degree: 'Bachelor of Computer Applications',
+      field: 'Computer Applications',
+      university: 'MCRPV University',
+      type: 'Bachelor',
+    },
+    {
+      degree: 'Master of Computer Application',
+      field: 'Computer Application',
+      university: 'Amity University',
+      type: 'Master',
+    },
+  ],
   skillsWithPercentages: [
     { name: 'Oracle Database', percentage: 95 },
     { name: 'SQL Server', percentage: 90 },

@@ -4,8 +4,10 @@
 import React from 'react';
 
 import { Fade } from 'react-awesome-reveal';
+import { PersonalInfo } from '../json/personalData';
 
 export default function EducationSection() {
+  const education = PersonalInfo.education || [];
   const certifications = [
     {
       name: 'Oracle OCP/OCA',
@@ -63,28 +65,71 @@ export default function EducationSection() {
               Education & Certifications
             </h1>
             <p className="font-light text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl lg:max-w-3xl mx-auto px-4 sm:px-0">
-              Professional certifications and continuous learning in database technologies
+              Academic qualifications and professional certifications in database technologies
             </p>
           </div>
         </Fade>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 md:gap-8 max-w-6xl lg:max-w-7xl w-full mb-12 sm:mb-14 md:mb-16">
-          {certifications.map((cert, index) => (
-            <Fade direction="up" delay={index * 100} triggerOnce key={cert.name}>
-              <div className="group bg-white rounded-2xl sm:rounded-3xl shadow-xl p-6 sm:p-7 md:p-8 border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform relative overflow-hidden flex flex-col h-full">
-                <div className="absolute top-0 right-0 w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-theme-purple to-dark-theme-purple opacity-10 rounded-full -mr-10 -mt-10 sm:-mr-12 sm:-mt-12" />
-                <div className="relative flex flex-col h-full">
-                  <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">{cert.icon}</div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-theme-blue mb-1 sm:mb-2">{cert.name}</h3>
-                  <p className="text-theme-purple font-semibold mb-2 sm:mb-3 text-sm sm:text-base">{cert.issuer}</p>
-                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 flex-grow">{cert.description}</p>
-                  <span className="inline-block px-2 sm:px-3 py-1 bg-light-theme-purple text-theme-purple rounded-full text-xs font-medium">
-                    {cert.year}
-                  </span>
-                </div>
-              </div>
+        {/* Education Section */}
+        {education.length > 0 && (
+          <div className="w-full max-w-6xl mb-12 sm:mb-14 md:mb-16">
+            <Fade direction="down" triggerOnce>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-theme-blue mb-6 sm:mb-8 text-center">
+                EDUCATION
+              </h2>
             </Fade>
-          ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-7 md:gap-8">
+              {education.map((edu, index) => (
+                <Fade direction="up" delay={index * 100} triggerOnce key={edu.degree}>
+                  <div className="group bg-white rounded-2xl sm:rounded-3xl shadow-xl p-6 sm:p-7 md:p-8 border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform relative overflow-hidden flex flex-col h-full min-h-[200px]">
+                    <div className="absolute top-0 right-0 w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-theme-purple to-dark-theme-purple opacity-10 rounded-full -mr-10 -mt-10 sm:-mr-12 sm:-mt-12" />
+                    <div className="relative flex flex-col h-full">
+                      <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">🎓</div>
+                      <h3 className="text-xl sm:text-2xl font-bold text-theme-blue mb-2 sm:mb-3 leading-tight">
+                        {edu.degree}
+                      </h3>
+                      <p className="text-theme-purple font-semibold mb-2 sm:mb-3 text-sm sm:text-base">
+                        {edu.field}
+                      </p>
+                      <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-3 sm:mb-4 flex-grow">
+                        {edu.university}
+                      </p>
+                      <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-light-theme-purple text-theme-purple rounded-full text-xs sm:text-sm font-medium">
+                        {edu.type}
+                      </span>
+                    </div>
+                  </div>
+                </Fade>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Certifications Section */}
+        <div className="w-full max-w-6xl mb-12 sm:mb-14 md:mb-16">
+          <Fade direction="down" triggerOnce>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-theme-blue mb-6 sm:mb-8 text-center">
+              CERTIFICATIONS
+            </h2>
+          </Fade>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 md:gap-8">
+            {certifications.map((cert, index) => (
+              <Fade direction="up" delay={index * 100} triggerOnce key={cert.name}>
+                <div className="group bg-white rounded-2xl sm:rounded-3xl shadow-xl p-6 sm:p-7 md:p-8 border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform relative overflow-hidden flex flex-col h-full min-h-[200px]">
+                  <div className="absolute top-0 right-0 w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-theme-purple to-dark-theme-purple opacity-10 rounded-full -mr-10 -mt-10 sm:-mr-12 sm:-mt-12" />
+                  <div className="relative flex flex-col h-full">
+                    <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">{cert.icon}</div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-theme-blue mb-1 sm:mb-2">{cert.name}</h3>
+                    <p className="text-theme-purple font-semibold mb-2 sm:mb-3 text-sm sm:text-base">{cert.issuer}</p>
+                    <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 flex-grow">{cert.description}</p>
+                    <span className="inline-block px-2 sm:px-3 py-1 bg-light-theme-purple text-theme-purple rounded-full text-xs font-medium">
+                      {cert.year}
+                    </span>
+                  </div>
+                </div>
+              </Fade>
+            ))}
+          </div>
         </div>
 
         <Fade direction="up" delay={600} triggerOnce>

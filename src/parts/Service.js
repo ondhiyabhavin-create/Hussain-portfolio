@@ -16,16 +16,8 @@ export default function Service({ data }) {
     'Security Compliant',
   ];
 
-  const handleLearnMore = (e) => {
-    e.preventDefault();
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <div className="bg-gradient-to-b from-gray-50 to-white py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32">
+    <div id="services" className="bg-gradient-to-b from-gray-50 to-white py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32">
       <div className="container mx-auto px-4 sm:px-5 md:px-6 lg:px-8 xl:px-10 2xl:px-12">
         <Fade direction="right" triggerOnce>
           <div className="text-center mb-10 sm:mb-12 md:mb-14 lg:mb-16">
@@ -44,17 +36,17 @@ export default function Service({ data }) {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 md:gap-8 max-w-6xl lg:max-w-7xl mx-auto mb-12 sm:mb-14 md:mb-16">
           {data.map((item, index) => (
             <Fade direction={item.animation} delay={index * 150} triggerOnce key={item.title}>
-              <div className="group relative">
+              <div className="group relative flex flex-col h-full">
                 <div className="absolute -inset-1 bg-gradient-to-r from-theme-purple to-dark-theme-purple rounded-2xl sm:rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-300" />
-                <div className="relative bg-white rounded-2xl sm:rounded-3xl shadow-xl border border-gray-100 p-6 sm:p-7 md:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl flex flex-col h-full">
-                  <div className="mb-4 sm:mb-6">
+                <div className="relative bg-white rounded-2xl sm:rounded-3xl shadow-xl border border-gray-100 p-6 sm:p-7 md:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl flex flex-col h-full min-h-[500px] sm:min-h-[550px] md:min-h-[600px]">
+                  <div className="mb-4 sm:mb-6 flex-shrink-0">
                     <img
                       src={item.imageUrl}
                       alt={item.title}
                       className="w-full h-48 sm:h-56 md:h-64 object-cover rounded-xl sm:rounded-2xl group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <h2 className="text-xl sm:text-2xl font-bold text-theme-blue mb-3 sm:mb-4 text-center">
+                  <h2 className="text-xl sm:text-2xl font-bold text-theme-blue mb-3 sm:mb-4 text-center flex-shrink-0">
                     {item.title}
                   </h2>
                   {item.description && (
@@ -62,10 +54,10 @@ export default function Service({ data }) {
                       {item.description}
                     </p>
                   )}
-                  <div className="flex justify-center mt-auto">
+                  <div className="flex justify-center mt-auto flex-shrink-0">
                     <Button
-                      type="button"
-                      onClick={handleLearnMore}
+                      type="link"
+                      href={`/service/${item.id || index + 1}`}
                       className="px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 bg-gradient-to-r from-theme-purple to-dark-theme-purple text-white rounded-full text-xs sm:text-sm font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 transform cursor-pointer"
                     >
                       Learn More →

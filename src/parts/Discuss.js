@@ -13,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Button from '../elements/Button';
 import { PersonalInfo } from '../json/personalData';
 import { Form } from '../elements/Form';
+import ContactIllustration from '../assets/images/contact/contact-form.png';
 
 export default function Discuss() {
   const [formData, setFormData] = useState({
@@ -98,83 +99,23 @@ export default function Discuss() {
           </div>
         </Fade>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 max-w-5xl lg:max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 max-w-5xl lg:max-w-6xl mx-auto items-center">
           <Fade direction="left" triggerOnce>
-            <div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-theme-blue mb-6 sm:mb-8">Contact Information</h2>
-              <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
-                Feel free to reach out through any of these channels. I typically respond
-                within 24 hours and am available for both short-term projects and long-term
-                consulting engagements.
-              </p>
-
-              <div className="space-y-4 sm:space-y-5 md:space-y-6">
-                <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-5 md:p-6 bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-gradient-to-br from-theme-purple to-dark-theme-purple rounded-lg sm:rounded-xl flex items-center justify-center text-white text-lg sm:text-xl flex-shrink-0">
-                    📧
-                  </div>
-                  <div className="min-w-0">
-                    <h3 className="font-bold text-theme-blue mb-1 text-sm sm:text-base">Email</h3>
-                    <a
-                      href={`mailto:${PersonalInfo.email}`}
-                      className="text-gray-600 hover:text-theme-purple transition-colors text-sm sm:text-base break-all"
-                    >
-                      {PersonalInfo.email}
-                    </a>
-                  </div>
+            <div className="flex justify-center lg:justify-start order-2 lg:order-1">
+              <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl relative">
+                <div className="relative animate-float">
+                  <img
+                    src={ContactIllustration}
+                    alt="Contact Us"
+                    className="w-full h-auto object-contain transform hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
-
-                {PersonalInfo.phone && (
-                  <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-5 md:p-6 bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-                    <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-gradient-to-br from-theme-purple to-dark-theme-purple rounded-lg sm:rounded-xl flex items-center justify-center text-white text-lg sm:text-xl flex-shrink-0">
-                      📞
-                    </div>
-                    <div className="min-w-0">
-                      <h3 className="font-bold text-theme-blue mb-1 text-sm sm:text-base">Phone</h3>
-                      <a
-                        href={`tel:${PersonalInfo.phone}`}
-                        className="text-gray-600 hover:text-theme-purple transition-colors text-sm sm:text-base"
-                      >
-                        {PersonalInfo.phone}
-                      </a>
-                    </div>
-                  </div>
-                )}
-
-                <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-5 md:p-6 bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-gradient-to-br from-theme-purple to-dark-theme-purple rounded-lg sm:rounded-xl flex items-center justify-center text-white text-lg sm:text-xl flex-shrink-0">
-                    📍
-                  </div>
-                  <div className="min-w-0">
-                    <h3 className="font-bold text-theme-blue mb-1 text-sm sm:text-base">Location</h3>
-                    <p className="text-gray-600 text-sm sm:text-base">{PersonalInfo.location}</p>
-                  </div>
-                </div>
-
-                {PersonalInfo.linkedin && (
-                  <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-5 md:p-6 bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-                    <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-gradient-to-br from-theme-purple to-dark-theme-purple rounded-lg sm:rounded-xl flex items-center justify-center text-white text-lg sm:text-xl flex-shrink-0">
-                      💼
-                    </div>
-                    <div className="min-w-0">
-                      <h3 className="font-bold text-theme-blue mb-1 text-sm sm:text-base">LinkedIn</h3>
-                      <a
-                        href={PersonalInfo.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-600 hover:text-theme-purple transition-colors text-sm sm:text-base"
-                      >
-                        Connect with me
-                      </a>
-                    </div>
-                  </div>
-                )}
               </div>
             </div>
           </Fade>
 
           <Fade direction="right" triggerOnce>
-            <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl p-5 sm:p-6 md:p-8 lg:p-10 border border-gray-100">
+            <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl p-5 sm:p-6 md:p-8 lg:p-10 border border-gray-100 order-1 lg:order-2">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-theme-blue mb-4 sm:mb-6">Send a Message</h2>
               <form onSubmit={handleSubmit} className="w-full">
                 <div className="space-y-4">

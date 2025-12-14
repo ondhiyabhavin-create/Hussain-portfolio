@@ -28,6 +28,14 @@ export default function Advantage() {
     { label: 'Freelance', value: personalDetails.freelance, icon: '💼' },
   ];
 
+  const personalDetailsInfo = [
+    { label: 'Date of birth', value: personalDetails.birthday || 'Not specified' },
+    { label: 'Nationality', value: personalDetails.nationality || 'Not specified' },
+    { label: 'Marital status', value: personalDetails.maritalStatus || 'Not specified' },
+  ];
+
+  const languages = personalDetails.languages || [];
+
   return (
     <div id="about" className="bg-gradient-to-b from-white to-gray-50 py-12 sm:py-16 md:py-20 lg:py-24">
       <div className="container mx-auto px-4 sm:px-5 md:px-6 lg:px-8 xl:px-10 2xl:px-12">
@@ -172,6 +180,51 @@ export default function Advantage() {
                         </div>
                       </div>
                     </Fade>
+                  ))}
+                </div>
+              </div>
+            </Fade>
+          </div>
+        </div>
+
+        {/* Personal Details and Languages Section */}
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+            {/* Personal Details */}
+            <Fade direction="right" delay={500} triggerOnce>
+              <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300">
+                <h2 className="text-2xl sm:text-3xl font-bold text-theme-blue mb-6 sm:mb-8">PERSONAL DETAILS</h2>
+                <div className="space-y-4 sm:space-y-5">
+                  {personalDetailsInfo.map((item, index) => (
+                    <Zoom key={item.label} delay={550 + index * 50} triggerOnce>
+                      <div className="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 rounded-xl hover:bg-gray-50 transition-colors duration-300 border border-gray-100">
+                        <span className="text-theme-purple font-bold text-sm sm:text-base min-w-[100px] sm:min-w-[120px]">
+                          {item.label}:
+                        </span>
+                        <span className="text-gray-600 text-sm sm:text-base flex-grow">
+                          {item.value}
+                        </span>
+                      </div>
+                    </Zoom>
+                  ))}
+                </div>
+              </div>
+            </Fade>
+
+            {/* Languages */}
+            <Fade direction="left" delay={600} triggerOnce>
+              <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300">
+                <h2 className="text-2xl sm:text-3xl font-bold text-theme-blue mb-6 sm:mb-8">LANGUAGES KNOWN</h2>
+                <div className="space-y-4 sm:space-y-5">
+                  {languages.map((language, index) => (
+                    <Zoom key={language} delay={650 + index * 50} triggerOnce>
+                      <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 rounded-xl hover:bg-gray-50 transition-colors duration-300 border border-gray-100">
+                        <div className="w-2 h-2 bg-theme-purple rounded-full" />
+                        <span className="text-gray-600 text-sm sm:text-base font-medium">
+                          {language}
+                        </span>
+                      </div>
+                    </Zoom>
                   ))}
                 </div>
               </div>
