@@ -21,18 +21,20 @@ section {
 .hero {
   @apply container px-5 flex flex-col mx-auto;
   overflow: visible;
-  padding-top: 6rem !important;
+  padding-top: 5rem !important;
+  position: relative;
+  z-index: 10;
 }
 
 @media (min-width: 640px) {
   .hero {
-    padding-top: 7rem !important;
+    padding-top: 6rem !important;
   }
 }
 
 @media (min-width: 768px) {
   .hero {
-    padding-top: 8rem !important;
+    padding-top: 7rem !important;
   }
 }
 

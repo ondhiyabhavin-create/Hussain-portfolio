@@ -84,20 +84,21 @@ export default function Header() {
   };
 
   return (
-    <header className="header fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/50">
-      <div className="container mx-auto flex justify-between items-center px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16 py-2 sm:py-3 lg:py-4">
+    <header className="header fixed top-0 left-0 right-0 z-50 bg-white shadow-lg border-b border-gray-200">
+      <div className="container mx-auto flex justify-between items-center px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16 py-2 sm:py-3 lg:py-4 relative z-50">
         <BrandIcon />
 
         <button
           type="button"
-          className="lg:hidden p-2 rounded-lg text-theme-blue hover:bg-gray-100 focus:outline-none transition-colors"
+          className="lg:hidden relative z-50 p-2 rounded-lg text-theme-blue hover:bg-gray-100 focus:outline-none transition-all duration-300 transform hover:scale-110"
           onClick={() => setIsCollapse(!isCollapse)}
+          aria-label="Toggle menu"
         >
-          <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-6 h-6 relative z-50" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             {isCollapse ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
             )}
           </svg>
         </button>
@@ -144,16 +145,16 @@ export default function Header() {
 
       <Transition
         show={isCollapse}
-        enter="transition ease-out duration-300"
-        enterFrom="opacity-0 -translate-y-2"
-        enterTo="opacity-100 translate-y-0"
-        leave="transition ease-in duration-200"
-        leaveFrom="opacity-100 translate-y-0"
-        leaveTo="opacity-0 -translate-y-2"
+        enter="transition ease-out duration-300 transform"
+        enterFrom="opacity-0 -translate-y-4 scale-95"
+        enterTo="opacity-100 translate-y-0 scale-100"
+        leave="transition ease-in duration-200 transform"
+        leaveFrom="opacity-100 translate-y-0 scale-100"
+        leaveTo="opacity-0 -translate-y-4 scale-95"
       >
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white/98 backdrop-blur-md shadow-xl border-b border-gray-200">
-          <nav className="container mx-auto px-4 py-4">
-            <ul className="flex flex-col space-y-2">
+        <div className="lg:hidden fixed top-0 left-0 right-0 bottom-0 bg-white z-40 pt-16 sm:pt-20 shadow-2xl overflow-y-auto">
+          <nav className="container mx-auto px-4 sm:px-6 py-6">
+            <ul className="flex flex-col space-y-3">
               {navItems.map((item) => {
                 const isActive = path === '/' && activeSection === item.id;
                 return (
@@ -161,10 +162,10 @@ export default function Header() {
                     <button
                       type="button"
                       onClick={(e) => handleNavClick(e, item)}
-                      className={`w-full px-4 py-3 rounded-lg font-medium text-base transition-all duration-300 ${
+                      className={`w-full px-5 py-3.5 rounded-xl font-semibold text-base transition-all duration-300 transform hover:scale-105 ${
                         isActive
-                          ? 'bg-gradient-to-r from-theme-purple to-dark-theme-purple text-white shadow-md'
-                          : 'text-gray-700 hover:text-theme-purple hover:bg-gray-50'
+                          ? 'bg-gradient-to-r from-theme-purple to-dark-theme-purple text-white shadow-lg'
+                          : 'text-gray-800 hover:text-theme-purple hover:bg-gray-100 border border-gray-200'
                       }`}
                     >
                       {item.name}
@@ -172,7 +173,7 @@ export default function Header() {
                   </li>
                 );
               })}
-              <li className="pt-1">
+              <li className="pt-2">
                 <button
                   type="button"
                   onClick={(e) => {
@@ -185,10 +186,10 @@ export default function Header() {
                       if (element) element.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
-                  className={`w-full px-4 py-3 rounded-lg font-medium text-base transition-all duration-300 ${
+                  className={`w-full px-5 py-3.5 rounded-xl font-semibold text-base transition-all duration-300 transform hover:scale-105 ${
                     path === '/' && activeSection === 'contact'
-                      ? 'bg-gradient-to-r from-theme-purple to-dark-theme-purple text-white shadow-md'
-                      : 'text-gray-700 hover:text-theme-purple hover:bg-gray-50'
+                      ? 'bg-gradient-to-r from-theme-purple to-dark-theme-purple text-white shadow-lg'
+                      : 'text-gray-800 hover:text-theme-purple hover:bg-gray-100 border border-gray-200'
                   }`}
                 >
                   Contact

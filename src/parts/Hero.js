@@ -11,7 +11,7 @@ import MaintenanceImage from "../assets/images/hero/maintenance.svg";
 
 export default function Hero() {
   return (
-    <section id="home" className="hero flex flex-col lg:flex-row items-start lg:items-center py-8 sm:py-12 lg:py-16 xl:py-20" style={{ overflow: 'visible', paddingTop: '6rem', scrollMarginTop: '5rem' }}>
+    <section id="home" className="hero flex flex-col lg:flex-row items-start lg:items-center py-8 sm:py-12 lg:py-16 xl:py-20 relative z-10" style={{ overflow: 'visible', scrollMarginTop: '5rem' }}>
       <div className="w-full lg:w-1/2 xl:pl-8 2xl:pl-12 px-4 sm:px-5 lg:px-0" style={{ overflow: 'visible' }}>
         <Fade direction="up" triggerOnce>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl text-theme-blue font-bold leading-tight mb-4 sm:mb-6">
