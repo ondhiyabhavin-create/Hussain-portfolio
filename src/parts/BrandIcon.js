@@ -10,7 +10,7 @@ export default function BrandIcon() {
   return (
     <Button className="" type="link" href="/">
       <p className="text-theme-blue text-4xl font-medium ">
-        Hussain
+        Ashfaq
         <span className="text-theme-purple">.dev</span>
       </p>
     </Button>

@@ -47,12 +47,15 @@ export const PersonalInfo = {
     },
   ],
   skillsWithPercentages: [
-    { name: 'Oracle Database', percentage: 95 },
-    { name: 'SQL Server', percentage: 90 },
-    { name: 'RAC & Data Guard', percentage: 85 },
+    { name: 'Oracle Database', percentage: 99 },
+    { name: 'SQL Server', percentage: 95 },
+    { name: 'Oracle EBS suite', percentage: 90 },
+    { name: 'Oracle ASM Rac and Data Guard', percentage: 85 },
+    { name: 'Oracle exadata', percentage: 85 },
+    { name: 'WebLogic', percentage: 82 },
+    { name: 'OCI', percentage: 81 },
     { name: 'GoldenGate', percentage: 80 },
-    { name: 'WebLogic', percentage: 75 },
-    { name: 'OCI', percentage: 70 },
+    { name: 'Oracle linux configuration & administration', percentage: 75 },
   ],
   email: 'nswaknwj@gmail.com',
   phone: '+966556024406',
@@ -69,6 +72,9 @@ export const Skills = {
   cloud: ['OCI', 'Azure SQL', 'Cloud Migration'],
   devops: ['Jenkins', 'GitLab CI', 'Ansible', 'Terraform'],
   security: ['TDE', 'Vault', 'GDPR', 'ISO', 'SOX', 'HIPAA'],
+  oracleEBS: ['Oracle EBS suite', 'EBS Installation', 'EBS Patching', 'EBS Cloning'],
+  oracleExadata: ['Oracle exadata', 'Exadata Administration', 'Storage Cells', 'InfiniBand'],
+  oracleLinux: ['Oracle linux configuration & administration', 'System Administration', 'Kernel Tuning', 'Security Hardening'],
 };
 
 // Experience

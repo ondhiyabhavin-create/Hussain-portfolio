@@ -51,6 +51,27 @@ export default function SkillsSection() {
       description: 'TDE, Vault, and compliance with GDPR, ISO, SOX, HIPAA',
       gradient: 'from-red-500 to-red-700',
     },
+    {
+      title: 'Oracle EBS Suite',
+      icon: '📊',
+      skills: Skills.oracleEBS,
+      description: 'Oracle E-Business Suite installation, patching, cloning, and performance optimization',
+      gradient: 'from-orange-500 to-orange-700',
+    },
+    {
+      title: 'Oracle Exadata',
+      icon: '⚡',
+      skills: Skills.oracleExadata,
+      description: 'Oracle Exadata database machine administration, storage cells, and performance tuning',
+      gradient: 'from-yellow-500 to-yellow-700',
+    },
+    {
+      title: 'Oracle Linux',
+      icon: '💻',
+      skills: Skills.oracleLinux,
+      description: 'Oracle Linux system administration, kernel tuning, and security hardening',
+      gradient: 'from-cyan-500 to-cyan-700',
+    },
   ];
 
   return (

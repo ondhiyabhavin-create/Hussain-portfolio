@@ -104,7 +104,7 @@ export const Portfolios = [
   },
   {
     id: "project2",
-    title: "Oracle 12c to 19c RAC Upgrade",
+    title: "Implementation Oracle RAC ASM",
     imageUrl: Stream,
     type: "Database Upgrade / RAC",
     responsibility: ["Oracle RAC", "ASM", "Upgrade Strategy"],

@@ -7,7 +7,7 @@ import { Fade } from "react-awesome-reveal";
 
 import TypingAnimation from "../components/TypingAnimation";
 import { PersonalInfo } from "../json/personalData";
-import BuildWebsite from "../assets/images/hero/BuildWebsite.png";
+import MaintenanceImage from "../assets/images/hero/maintenance.svg";
 
 export default function Hero() {
   return (
@@ -17,7 +17,7 @@ export default function Hero() {
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl text-theme-blue font-bold leading-tight mb-4 sm:mb-6">
             Welcome to{' '}
             <span className="text-theme-purple bg-gradient-to-r from-theme-purple to-dark-theme-purple bg-clip-text text-transparent">
-              {PersonalInfo.firstName}&apos;s
+              Ashfaq&apos;s
             </span>
             <br />
             <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl">Portfolio</span>
@@ -54,7 +54,7 @@ export default function Hero() {
           <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl relative">
             <div className="relative animate-float">
               <img
-                src={BuildWebsite}
+                src={MaintenanceImage}
                 alt="Database Consultant"
                 className="w-full h-auto object-contain transform hover:scale-105 transition-transform duration-300"
               />

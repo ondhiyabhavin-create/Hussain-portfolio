@@ -9,6 +9,7 @@ import React from 'react';
 import { Fade, Zoom } from 'react-awesome-reveal';
 import Button from '../elements/Button';
 import { PersonalInfo } from '../json/personalData';
+import AboutImage from '../assets/images/about/about.jpeg';
 
 export default function Advantage() {
   const personalDetails = PersonalInfo.personalDetails || {};
@@ -22,7 +23,6 @@ export default function Advantage() {
   ];
 
   const personalInfoRight = [
-    { label: 'Age', value: personalDetails.age, icon: '📅' },
     { label: 'Email', value: personalDetails.email, icon: '✉️' },
     { label: 'Phone', value: personalDetails.phone, icon: '📱' },
     { label: 'Freelance', value: personalDetails.freelance, icon: '💼' },
@@ -46,14 +46,40 @@ export default function Advantage() {
               <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-theme-purple to-dark-theme-purple transform -translate-y-2" />
             </h1>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-theme-blue font-bold mb-4 sm:mb-6">
-              I&apos;m {PersonalInfo.firstName} ||{' '}
+              I&apos;m Ashfaq ||{' '}
               <span className="text-theme-purple">{PersonalInfo.role}</span>
             </h2>
-            <p className="font-light text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              {PersonalInfo.bio}
-            </p>
           </div>
         </Fade>
+
+        {/* Image and Bio Section */}
+        <div className="max-w-6xl mx-auto mb-8 sm:mb-10 md:mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center">
+            <Fade direction="right" triggerOnce>
+              <div className="flex justify-center lg:justify-start order-2 lg:order-1">
+                <div className="w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] relative group">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-theme-purple to-dark-theme-purple rounded-2xl sm:rounded-3xl blur opacity-30 group-hover:opacity-40 transition-opacity duration-300" />
+                  <div className="relative bg-white rounded-2xl sm:rounded-3xl p-2 sm:p-3 shadow-xl border-2 border-theme-purple/30 group-hover:border-theme-purple/50 transition-all duration-300">
+                    <div className="relative rounded-xl sm:rounded-2xl overflow-hidden">
+                      <img
+                        src={AboutImage}
+                        alt="Ashfaq"
+                        className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Fade>
+            <Fade direction="left" triggerOnce>
+              <div className="order-1 lg:order-2">
+                <p className="font-light text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
+                  {PersonalInfo.bio}
+                </p>
+              </div>
+            </Fade>
+          </div>
+        </div>
 
         {/* Main Content Grid: Personal Details + Skills */}
         <div className="max-w-6xl mx-auto mb-8 sm:mb-10 md:mb-12">
