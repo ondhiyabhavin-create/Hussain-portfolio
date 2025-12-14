@@ -6,7 +6,8 @@ import React from 'react';
 
 import { Fade } from 'react-awesome-reveal';
 
-import heroPortfolio from 'assets/images/hero/portfolioHero.png';
+// portfolioHero.png removed - using placeholder or alternative image
+import NotFound from 'assets/images/NotFound.png';
 
 export default function HeroPortfolio() {
   return (
@@ -23,7 +24,7 @@ export default function HeroPortfolio() {
       </div>
       <div className="w-full sm:w-1/2 sm:pr-12">
         <Fade direction="up" triggerOnce>
-          <img src={heroPortfolio} alt="Hero" />
+          <img src={NotFound} alt="Portfolio Hero" />
         </Fade>
       </div>
     </section>

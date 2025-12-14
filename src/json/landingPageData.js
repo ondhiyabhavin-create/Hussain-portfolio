@@ -10,20 +10,11 @@ import Recruiting from "../assets/images/Portfolio/Recruiting.png";
 import Stream from "../assets/images/Portfolio/Stream.png";
 import Freelance from "../assets/images/Portfolio/Freelance.png";
 
-// Advantages
-import Communicative from "../assets/images/Advantages/Communicative.png";
-import Collaborative from "../assets/images/Advantages/Collaborative.png";
-import Management from "../assets/images/Advantages/Management.png";
-import Favorite from "../assets/images/Advantages/Favorite.png";
-
-// Testimonials
-import Sasha from "../assets/images/Testimonials/Sasha.jpg";
-import Reiner from "../assets/images/Testimonials/Reiner.jpg";
-import Kruger from "../assets/images/Testimonials/Kruger.jpg";
+// Advantages and Testimonials removed - not used in personal portfolio
 
 // TeamMembers
-import CEO from "../assets/images/TeamMembers/bhavin.jpg";
-import HRD from "../assets/images/TeamMembers/Prachi.jpeg";
+import CEO from "../assets/images/TeamMembers/CEO.jpg";
+import HRD from "../assets/images/TeamMembers/HRD.jpg";
 import Finance from "../assets/images/TeamMembers/Finance.jpg";
 import ProjectManager from "../assets/images/TeamMembers/Project-manager.jpg";
 import Frontend1 from "../assets/images/TeamMembers/Frontend1.jpg";
@@ -124,60 +115,7 @@ export const Portfolios = [
   },
 ];
 
-export const Advantages = [
-  [
-    {
-      title: "Communicative",
-      description:
-        "We communicate our project ideas and progress to make it clear.",
-      imageUrl: Communicative,
-    },
-    {
-      title: "Management",
-      description:
-        "We manage our project properly to make our project done well.",
-      imageUrl: Management,
-    },
-  ],
-  [
-    {
-      title: "Collaborative​",
-      description:
-        "Our team are very collaborative to make our project done well.",
-      imageUrl: Collaborative,
-    },
-    {
-      title: "Favorite",
-      description: "We've did so many project and all of our client love it.",
-      imageUrl: Favorite,
-    },
-  ],
-];
-export const Testimonials = [
-  {
-    id: 1,
-    name: "Sasha Rose",
-    company: "Owner, Surveyor Corps",
-    testimoni:
-      "Thanks for Streamivus, you guys are the best! Keep up the great work!",
-    imageUrl: Sasha,
-  },
-  {
-    id: 2,
-    name: "Kruger Khan",
-    company: "Director, Shultan Oil",
-    testimoni:
-      "I just wanted to let you know that it’s been great working with Streamivus.",
-    imageUrl: Kruger,
-  },
-  {
-    id: 3,
-    name: "Reiner John",
-    company: "CEO, Marley CO",
-    testimoni: "Streamivus is so great. Thank you so much for a job well done.",
-    imageUrl: Reiner,
-  },
-];
+// Advantages and Testimonials exports removed - not used in personal portfolio
 
 export const TeamMembers = [
   {
