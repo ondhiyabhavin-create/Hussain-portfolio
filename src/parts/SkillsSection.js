@@ -97,9 +97,9 @@ export default function SkillsSection() {
         </div>
 
         <Fade direction="up" delay={600} triggerOnce>
-          <div className="mt-12 sm:mt-16 md:mt-20 max-w-4xl lg:max-w-5xl w-full px-4 sm:px-0">
+          <div className="mt-12 sm:mt-16 md:mt-20 max-w-5xl lg:max-w-6xl xl:max-w-7xl w-full px-4 sm:px-0">
             <div className="bg-gradient-to-r from-theme-purple to-dark-theme-purple rounded-2xl sm:rounded-3xl p-8 sm:p-10 md:p-12 text-white shadow-2xl">
-              <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center">Core Competencies</h3>
+              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-center">Core Competencies</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 sm:p-7 md:p-8 flex flex-col h-full">
                   <h4 className="font-bold text-base sm:text-lg mb-2 sm:mb-3">Database Administration</h4>

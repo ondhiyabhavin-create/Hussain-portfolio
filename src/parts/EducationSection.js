@@ -91,9 +91,14 @@ export default function EducationSection() {
                       <p className="text-theme-purple font-semibold mb-2 sm:mb-3 text-sm sm:text-base">
                         {edu.field}
                       </p>
-                      <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-3 sm:mb-4 flex-grow">
+                      <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-2 sm:mb-3 flex-grow">
                         {edu.university}
                       </p>
+                      {edu.period && (
+                        <p className="text-gray-500 text-xs sm:text-sm mb-3 sm:mb-4 italic">
+                          {edu.period}
+                        </p>
+                      )}
                       <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-light-theme-purple text-theme-purple rounded-full text-xs sm:text-sm font-medium">
                         {edu.type}
                       </span>
@@ -133,7 +138,7 @@ export default function EducationSection() {
         </div>
 
         <Fade direction="up" delay={600} triggerOnce>
-          <div className="max-w-4xl lg:max-w-5xl w-full px-4 sm:px-0">
+          <div className="max-w-6xl lg:max-w-7xl w-full px-4 sm:px-0">
             <div className="bg-gradient-to-r from-theme-blue to-theme-purple rounded-2xl sm:rounded-3xl p-8 sm:p-10 md:p-12 text-white shadow-2xl">
               <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center">Continuous Learning</h3>
               <p className="text-base sm:text-lg md:text-xl leading-relaxed text-center opacity-95 mb-6 sm:mb-8 px-2 sm:px-0">
