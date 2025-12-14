@@ -4,7 +4,7 @@
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Fade } from 'react-awesome-reveal';
 import { Transition } from '@headlessui/react';
@@ -15,112 +15,187 @@ import BrandIcon from './BrandIcon';
 
 export default function Header() {
   const [isCollapse, setIsCollapse] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
   const location = useLocation();
   const path = location.pathname;
 
+  // Detect active section on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'about', 'skills', 'education', 'projects', 'experience', 'contact'];
+      const scrollPosition = window.scrollY + 200;
+
+      // Check if at top of page
+      if (window.scrollY < 100) {
+        setActiveSection('home');
+        return;
+      }
+
+      // Find active section
+      for (let i = sections.length - 1; i >= 0; i -= 1) {
+        const section = document.getElementById(sections[i]);
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
+    };
+
+    if (path === '/') {
+      window.addEventListener('scroll', handleScroll);
+      handleScroll();
+      return () => window.removeEventListener('scroll', handleScroll);
+    }
+    return () => {};
+  }, [path]);
+
+  const navItems = [
+    {
+      name: 'Home', href: '/', id: 'home',
+    },
+    {
+      name: 'About', href: '/#about', id: 'about',
+    },
+    {
+      name: 'Skills', href: '/#skills', id: 'skills',
+    },
+    {
+      name: 'Education', href: '/#education', id: 'education',
+    },
+    {
+      name: 'Project', href: '/#projects', id: 'projects',
+    },
+    {
+      name: 'Experience', href: '/#experience', id: 'experience',
+    },
+  ];
+
+  const handleNavClick = (e, item) => {
+    e.preventDefault();
+    setIsCollapse(false);
+    if (path !== '/') {
+      window.location.href = item.href;
+    } else {
+      const element = document.getElementById(item.id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
-    <header className="header">
-      <div className="flex justify-between px-4 lg:px-0">
+    <header className="header fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/50">
+      <div className="container mx-auto flex justify-between items-center px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16 py-2 sm:py-3 lg:py-4">
         <BrandIcon />
 
-        <button className="block text-theme-blue lg:hidden focus:outline-none" onClick={() => setIsCollapse(!isCollapse)}>
-          <svg className="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path className={`${isCollapse ? 'hidden' : 'block'}`} strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
-            <path className={`${!isCollapse ? 'hidden' : 'block'}`} strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        <button
+          type="button"
+          className="lg:hidden p-2 rounded-lg text-theme-blue hover:bg-gray-100 focus:outline-none transition-colors"
+          onClick={() => setIsCollapse(!isCollapse)}
+        >
+          <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            {isCollapse ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            )}
           </svg>
         </button>
       </div>
 
-      <ul className="hidden text-theme-blue tracking-widest items-center lg:flex flex-row mt-0">
-        <li>
-          <Button
-            className={`${path === '/' ? 'active-link' : ''} font-medium text-lg px-5 no-underline hover:underline`}
-            type="link"
-            href="/"
-          >
-            Home
-          </Button>
-        </li>
-        <li className="py-2 lg:py-0">
-          <Button
-            className={`${path === '/team' ? 'active-link' : ''} font-medium text-lg px-5 no-underline hover:underline`}
-            type="link"
-            href="/team"
-          >
-            Team
-          </Button>
-        </li>
-        <li className="py-2 lg:py-0">
-          <Button
-            className={`${path === '/project' ? 'active-link' : ''} font-medium text-lg px-5 no-underline hover:underline`}
-            type="link"
-            href="/project"
-          >
-            Project
-          </Button>
-        </li>
-        <li>
-          <Button
-            className="font-medium text-lg mx-auto ml-3 px-6 py-2 bg-theme-purple text-white rounded-full border-2 border-theme-purple hover:bg-dark-theme-purple border-purple-800 transition duration-200"
-            type="link"
-            href="/discuss-project"
-          >
-            Discuss Project
-          </Button>
-        </li>
-      </ul>
+      <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2 ml-auto">
+        {navItems.map((item) => {
+          const isActive = path === '/' && activeSection === item.id;
+          return (
+            <button
+              key={item.id}
+              type="button"
+              onClick={(e) => handleNavClick(e, item)}
+              className={`px-3 xl:px-4 2xl:px-5 py-2 rounded-full font-medium text-xs xl:text-sm transition-all duration-300 ${
+                isActive
+                  ? 'bg-gradient-to-r from-theme-purple to-dark-theme-purple text-white shadow-md'
+                  : 'text-gray-700 hover:text-theme-purple'
+              }`}
+            >
+              {item.name}
+            </button>
+          );
+        })}
+        <button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            if (path !== '/') {
+              window.location.href = '/#contact';
+            } else {
+              const element = document.getElementById('contact');
+              if (element) element.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
+          className={`ml-1 xl:ml-2 px-4 xl:px-5 2xl:px-6 py-2 rounded-full font-medium text-xs xl:text-sm transition-all duration-300 ${
+            path === '/' && activeSection === 'contact'
+              ? 'bg-gradient-to-r from-theme-purple to-dark-theme-purple text-white shadow-md'
+              : 'text-gray-700 hover:text-theme-purple'
+          }`}
+        >
+          Contact
+        </button>
+      </nav>
 
       <Transition
         show={isCollapse}
-        enter="transition-opacity duration-400"
-        enterFrom="opacity-0"
-        enterTo="opacity-100"
-        leave="transition-opacity duration-400"
-        leaveFrom="opacity-100"
-        leaveTo="opacity-0"
+        enter="transition ease-out duration-300"
+        enterFrom="opacity-0 -translate-y-2"
+        enterTo="opacity-100 translate-y-0"
+        leave="transition ease-in duration-200"
+        leaveFrom="opacity-100 translate-y-0"
+        leaveTo="opacity-0 -translate-y-2"
       >
-        <div className="transition duration-300 ease-in data-[closed]:opacity-0">
-
-          {/* <Fade> */}
-          <ul className="z-50 flex flex-col text-theme-blue tracking-widest my-6 absolute bg-white w-full border-b-2 border-gray-300 lg:hidden">
-            <li className="py-2 bg-white">
-              <Button
-                className={`${path === '/' ? 'active-link' : ''} font-medium px-10 no-underline hover:underline`}
-                type="link"
-                href="/"
-              >
-                Home
-              </Button>
-            </li>
-            <li className="py-2 bg-white">
-              <Button
-                className={`${path === '/team' ? 'active-link' : ''} font-medium px-10 no-underline hover:underline`}
-                type="link"
-                href="/team"
-              >
-                Team
-              </Button>
-            </li>
-            <li className="py-2 bg-white">
-              <Button
-                className={`${path === '/project' ? 'active-link' : ''} font-medium px-10 no-underline hover:underline`}
-                type="link"
-                href="/project"
-              >
-                Project
-              </Button>
-            </li>
-            <li className="mx-auto my-9 bg-white">
-              <Button
-                className="font-bold mx-auto px-5 py-2 bg-theme-purple text-white rounded-full border-2 border-theme-purple hover:bg-dark-theme-purple border-purple-800 transition duration-200"
-                type="link"
-                href="/discuss-project"
-              >
-                Discuss Project
-              </Button>
-            </li>
-          </ul>
-          {/* </Fade> */}
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-white/98 backdrop-blur-md shadow-xl border-b border-gray-200">
+          <nav className="container mx-auto px-4 py-4">
+            <ul className="flex flex-col space-y-2">
+              {navItems.map((item) => {
+                const isActive = path === '/' && activeSection === item.id;
+                return (
+                  <li key={item.id}>
+                    <button
+                      type="button"
+                      onClick={(e) => handleNavClick(e, item)}
+                      className={`w-full px-4 py-3 rounded-lg font-medium text-base transition-all duration-300 ${
+                        isActive
+                          ? 'bg-gradient-to-r from-theme-purple to-dark-theme-purple text-white shadow-md'
+                          : 'text-gray-700 hover:text-theme-purple hover:bg-gray-50'
+                      }`}
+                    >
+                      {item.name}
+                    </button>
+                  </li>
+                );
+              })}
+              <li className="pt-1">
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsCollapse(false);
+                    if (path !== '/') {
+                      window.location.href = '/#contact';
+                    } else {
+                      const element = document.getElementById('contact');
+                      if (element) element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  className={`w-full px-4 py-3 rounded-lg font-medium text-base transition-all duration-300 ${
+                    path === '/' && activeSection === 'contact'
+                      ? 'bg-gradient-to-r from-theme-purple to-dark-theme-purple text-white shadow-md'
+                      : 'text-gray-700 hover:text-theme-purple hover:bg-gray-50'
+                  }`}
+                >
+                  Contact
+                </button>
+              </li>
+            </ul>
+          </nav>
         </div>
       </Transition>
     </header>

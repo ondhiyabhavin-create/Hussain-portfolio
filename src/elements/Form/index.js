@@ -45,24 +45,26 @@ export const Form = (props) => {
 
   if (type === 'textarea') {
     return (
-      <textarea
-        name={name}
-        placeholder={placeholder}
-        value={value}
-        className={[
-          'w-95 sm:w-192 lg:w-192.5 xl:w-192.5 p-4 mx-2 mb-6 font-light text-lg text-theme-blue rounded border border-gray-400 focus:outline-none focus:ring-1 focus:ring-theme-purple',
-          className,
-        ].join(' ')}
-        onChange={onChange}
-        rows="9"
-        required
-      />
+      <div className="flex flex-col mb-6 mx-2 lg:mx-5">
+        <textarea
+          name={name}
+          placeholder={placeholder}
+          value={value}
+          className={[
+            'w-full p-4 font-light text-lg text-theme-blue rounded border border-gray-400 focus:outline-none focus:ring-1 focus:ring-theme-purple resize-y min-h-[120px] max-h-[200px]',
+            className,
+          ].join(' ')}
+          onChange={onChange}
+          rows="5"
+          required
+        />
+      </div>
     );
   }
 
   if (type === 'number') {
     return (
-      <div className="flex flex-col mb-6 mx-2 lg:mx-5 ">
+      <div className="flex flex-col mb-6 mx-2 lg:mx-5">
         <input
           name={name}
           type={type}
@@ -70,14 +72,14 @@ export const Form = (props) => {
           pattern={pattern}
           value={value}
           className={[
-            'p-4 font-light text-lg text-theme-blue rounded border border-gray-400 focus:outline-none focus:ring-1 focus:ring-theme-purple',
+            'w-full p-4 font-light text-lg text-theme-blue rounded border border-gray-400 focus:outline-none focus:ring-1 focus:ring-theme-purple',
             className,
           ].join(' ')}
           onChange={onChange}
           required
         />
         {hasError && (
-          <span className="text-sm text-white bg-red-500 p-1 rounded">
+          <span className="text-sm text-white bg-red-500 p-1 rounded mt-1">
             {hasError}
           </span>
         )}
@@ -86,21 +88,21 @@ export const Form = (props) => {
   }
 
   return (
-    <div className="flex flex-col mb-6 mx-2 lg:mx-5 ">
+    <div className="flex flex-col mb-6 mx-2 lg:mx-5">
       <input
         name={name}
         type={type}
         placeholder={placeholder}
         value={value}
         className={[
-          'p-4 font-light text-lg text-theme-blue rounded border border-gray-400 focus:outline-none focus:ring-1 focus:ring-theme-purple',
+          'w-full p-4 font-light text-lg text-theme-blue rounded border border-gray-400 focus:outline-none focus:ring-1 focus:ring-theme-purple',
           className,
         ].join(' ')}
         onChange={onChange}
         required
       />
       {hasError && (
-        <span className="text-sm text-white bg-red-500 p-1 rounded">
+        <span className="text-sm text-white bg-red-500 p-1 rounded mt-1">
           {hasError}
         </span>
       )}

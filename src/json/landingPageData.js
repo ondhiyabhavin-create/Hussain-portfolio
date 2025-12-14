@@ -9,9 +9,6 @@ import UIUX from "../assets/images/Services/Design.png";
 import Recruiting from "../assets/images/Portfolio/Recruiting.png";
 import Stream from "../assets/images/Portfolio/Stream.png";
 import Freelance from "../assets/images/Portfolio/Freelance.png";
-import Aura from "../assets/images/Portfolio/Aura.png";
-import Surtido from "../assets/images/Portfolio/Surtido.png";
-import ManagementApp from "../assets/images/Portfolio/ManagementApp.png";
 
 // Advantages
 import Communicative from "../assets/images/Advantages/Communicative.png";
@@ -38,73 +35,59 @@ import Mobile2 from "../assets/images/TeamMembers/Mobile2.jpg";
 import UIUX1 from "../assets/images/TeamMembers/UIUX1.jpg";
 import UIUX2 from "../assets/images/TeamMembers/UIUX2.jpg";
 
+// Personal Services
 export const Services = [
   {
-    title: "Web Development",
+    title: "Oracle DBA & RAC",
     imageUrl: Web,
     animation: "left",
+    description: "Oracle database administration, RAC implementation, and disaster recovery solutions",
   },
   {
-    title: "Mobile Development",
+    title: "GoldenGate Replication",
     imageUrl: Mobile,
     animation: "up",
+    description: "Real-time data replication and synchronization using Oracle GoldenGate",
   },
   {
-    title: "UI/UX Design",
+    title: "Cloud Migration & DevOps",
     imageUrl: UIUX,
     animation: "right",
+    description: "OCI/Azure migration, WebLogic administration, and DevOps automation",
   },
 ];
 
+// Personal Projects
 export const Portfolios = [
   {
-    id: "asd1293uasdads1",
-    title: "Recruiting App",
+    id: "project1",
+    title: "Oracle Data Guard DR Implementation",
     imageUrl: Recruiting,
-    type: "Mobile Apps",
-    responsibility: ["Mobile Development", "UI/UX Design"],
-    credit: "https://dribbble.com/shots/15164950-Recruiting-app",
+    type: "Disaster Recovery / High Availability",
+    responsibility: ["Oracle Data Guard", "FSFO", "Zero Data Loss"],
+    credit: "",
+    problem: "Implemented comprehensive disaster recovery solution for mission-critical systems",
+    outcome: "Achieved zero data loss with Fast-Start Failover (FSFO) enabled for automatic failover",
   },
   {
-    id: "asd1293uhjkhkjh2",
-    title: "Stream+",
+    id: "project2",
+    title: "Oracle 12c to 19c RAC Upgrade",
     imageUrl: Stream,
-    type: "Mobile Apps",
-    responsibility: ["Mobile Development", "UI/UX Design"],
-    credit: "https://dribbble.com/shots/15276430-Stream",
+    type: "Database Upgrade / RAC",
+    responsibility: ["Oracle RAC", "ASM", "Upgrade Strategy"],
+    credit: "",
+    problem: "Upgraded Oracle RAC cluster from 12c to 19c while maintaining high availability",
+    outcome: "Completed upgrade with minimal downtime and zero data loss",
   },
   {
-    id: "asd1293uvbvcbbd3",
-    title: "Freelance",
+    id: "project3",
+    title: "Performance Tuning & Optimization",
     imageUrl: Freelance,
-    type: "Mobile Apps",
-    responsibility: ["Mobile Development", "UI/UX Design"],
-    credit: "https://dribbble.com/shots/15223131-Freelance-Mobile-App-Concept",
-  },
-  {
-    id: "asd1293ufgdfgs4",
-    title: "Aura",
-    imageUrl: Aura,
-    type: "Website",
-    responsibility: ["Web Development", "UI/UX Design"],
-    credit: "https://dribbble.com/shots/15176338-Aura-Website-Main-Page",
-  },
-  {
-    id: "asd1293ulskmnb5",
-    title: "Surtido Rico",
-    imageUrl: Surtido,
-    type: "Website",
-    responsibility: ["Web Development", "UI/UX Design"],
-    credit: "https://dribbble.com/shots/15173118-Surtido-Rico",
-  },
-  {
-    id: "asd1293ulkmnbj6",
-    title: "Courses Management",
-    imageUrl: ManagementApp,
-    type: "Website",
-    responsibility: ["Web Development", "UI/UX Design"],
-    credit:
-      "https://dribbble.com/shots/15197890-Courses-Management-and-Promoting-Web-App",
+    type: "Performance Optimization",
+    responsibility: ["SQL Tuning", "Index Optimization", "Query Analysis"],
+    credit: "",
+    problem: "Optimized database performance for critical business queries",
+    outcome: "Achieved 40% query performance improvement through comprehensive tuning",
   },
 ];
 

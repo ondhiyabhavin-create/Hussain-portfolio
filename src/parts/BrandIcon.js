@@ -10,8 +10,8 @@ export default function BrandIcon() {
   return (
     <Button className="" type="link" href="/">
       <p className="text-theme-blue text-4xl font-medium ">
-        Stream
-        <span className="text-theme-purple">ivus</span>
+        Hussain
+        <span className="text-theme-purple">.dev</span>
       </p>
     </Button>
   );

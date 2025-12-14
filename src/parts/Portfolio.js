@@ -8,62 +8,77 @@ import React from 'react';
 
 import { Fade } from 'react-awesome-reveal';
 
-import Button from '../elements/Button';
-
 export default function Portfolio({ data }) {
   return (
-    <section className="container mx-auto flex flex-col items-center mt-20">
-      <Fade direction="right" triggerOnce>
-        <h1 className="text-5xl text-theme-blue text-center font-bold">Our Selected Project</h1>
-      </Fade>
-      <Fade direction="left" triggerOnce>
-        <p className="font-light text-lg text-gray-400 text-center mb-12">
-          We are ready to scale up your business with our great work result.
-        </p>
-      </Fade>
+    <section id="projects" className="bg-white py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32">
+      <div className="container mx-auto flex flex-col items-center px-4 sm:px-5 md:px-6 lg:px-8 xl:px-10 2xl:px-12">
+        <Fade direction="right" triggerOnce>
+          <div className="text-center mb-10 sm:mb-12 md:mb-14 lg:mb-16">
+            <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-light-theme-purple text-theme-purple rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-6">
+              Portfolio
+            </span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-8xl text-theme-blue font-bold mb-4 sm:mb-6">
+              Featured Projects
+            </h1>
+            <p className="font-light text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl lg:max-w-3xl mx-auto px-4 sm:px-0">
+              Highlighted projects showcasing problem-solving, technical expertise,
+              and measurable impact
+            </p>
+          </div>
+        </Fade>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 sm:gap-2 xl:gap-8 justify-items-center">
-        {
-          data.map((item, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <Fade direction="up" triggerOnce bottom delay={500 * index} key={index}>
-              <Button type="link" href={`/project/${item.id}`}>
-                <div className="group rounded-2xl shadow-xl w-auto m-3 transform transition duration-500 hover:scale-110 portofolio-card">
-                  <div className="relative">
-                    <img src={item.imageUrl} alt="Portfolio" className="rounded-t-2xl z-0" />
-                    <div className="absolute flex w-full h-full top-0 opacity-0 bg-black justify-center rounded-t-2xl rounded-b img-hover">
-                      <button className="focus:outline-none">
-                        <svg className="w-20 h-20 text-gray-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                  <div className="py-4">
-                    <h2 className="text-theme-blue text-center text-xl">{item.title}</h2>
-                    <p className="font-light text-gray-400 text-center">{item.type}</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 md:gap-8 max-w-6xl lg:max-w-7xl w-full">
+          {data.map((item, index) => (
+            <Fade direction="up" delay={index * 150} triggerOnce key={item.id}>
+              <div className="group bg-white rounded-2xl sm:rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform">
+                <div className="relative overflow-hidden">
+                  <img
+                    src={item.imageUrl}
+                    alt={item.title}
+                    className="w-full h-48 sm:h-56 md:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
+                    <span className="px-2 sm:px-3 py-1 bg-theme-purple text-white rounded-full text-xs font-semibold shadow-lg">
+                      {item.type}
+                    </span>
                   </div>
                 </div>
-              </Button>
+                <div className="p-6 sm:p-7 md:p-8">
+                  <h3 className="text-xl sm:text-2xl font-bold text-theme-blue mb-2 sm:mb-3">{item.title}</h3>
+                  {item.problem && (
+                    <div className="mb-4">
+                      <p className="text-sm font-semibold text-gray-500 mb-2">Challenge:</p>
+                      <p className="text-gray-700 leading-relaxed">{item.problem}</p>
+                    </div>
+                  )}
+                  {item.responsibility && item.responsibility.length > 0 && (
+                    <div className="mb-4">
+                      <p className="text-sm font-semibold text-gray-500 mb-2">Tech Stack:</p>
+                      <div className="flex flex-wrap gap-2">
+                        {item.responsibility.slice(0, 4).map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-3 py-1 bg-light-theme-purple text-theme-purple rounded-lg text-xs font-medium"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {item.outcome && (
+                    <div className="mt-4 pt-4 border-t border-gray-200">
+                      <p className="text-sm font-semibold text-theme-purple mb-2">Result:</p>
+                      <p className="text-gray-700 text-sm leading-relaxed">{item.outcome}</p>
+                    </div>
+                  )}
+                </div>
+              </div>
             </Fade>
-          ))
-        }
+          ))}
+        </div>
       </div>
-
-      <Fade bottom triggerOnce>
-        <Button href="/project" type="link" className="flex flex-grow-0 w-36 h-12 sm:w-40 sm:h-14 lg:w-44 lg:h-16 xl:w-36 xl:h-12 text-theme-purple px-5 border border-theme-purple items-center mt-14 rounded-full justify-center transition duration-300 hover:bg-theme-purple hover:text-white">
-          <p className="font-normal py-3 lg:text-lg xl:text-base">
-            See More
-          </p>
-          <svg className="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-          <svg className="w-4 h-4 -ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </Button>
-      </Fade>
     </section>
   );
 }

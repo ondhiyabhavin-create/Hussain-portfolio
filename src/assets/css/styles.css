@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 section {
   @apply mb-28;
 }
@@ -11,7 +15,7 @@ section {
 }
 
 .header {
-  @apply flex flex-col py-4 mb-4 justify-between;
+  @apply flex flex-col py-4 justify-between;
 }
 
 .hero {
@@ -24,11 +28,11 @@ section {
 
 @media (min-width: 1024px) {
   .header {
-    @apply container w-full flex-row py-8 px-10 mt-2 mb-4 mx-auto items-center content-center border-b border-gray-100;
+    @apply flex-row items-center content-center border-b border-gray-100;
   }
 
   .hero {
-    @apply container flex-row mx-auto mt-8;
+    @apply container flex-row mx-auto;
   }
 }
 

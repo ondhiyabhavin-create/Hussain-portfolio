@@ -17,8 +17,8 @@ export default function Button({
   target = '',
   children = null,
 }) {
-  const onClickHandler = () => {
-    if (onClick) onClick();
+  const onClickHandler = (e) => {
+    if (onClick) onClick(e);
   };
 
   if (type === 'link') {
