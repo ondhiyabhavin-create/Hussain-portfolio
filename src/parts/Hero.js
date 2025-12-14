@@ -49,7 +49,7 @@ export default function Hero() {
           </div>
         </Fade>
       </div>
-      <div className="flex pt-0 sm:pt-5 w-full lg:w-1/2 justify-center items-center order-first lg:order-last px-4 sm:px-0">
+      <div className="flex pt-16 sm:pt-5 w-full lg:w-1/2 justify-center items-center order-first lg:order-last px-4 sm:px-0">
         <Fade direction="up" delay={300} triggerOnce>
           <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl relative">
             <div className="relative animate-float">
