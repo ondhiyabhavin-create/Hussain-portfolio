@@ -74,13 +74,13 @@ export default function SkillsSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 md:gap-8 max-w-6xl lg:max-w-7xl w-full">
           {skillCategories.map((category, index) => (
             <Fade direction="up" delay={index * 100} triggerOnce key={category.title}>
-              <div className="group bg-white rounded-2xl sm:rounded-3xl shadow-xl p-6 sm:p-7 md:p-8 border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform relative overflow-hidden">
+              <div className="group bg-white rounded-2xl sm:rounded-3xl shadow-xl p-6 sm:p-7 md:p-8 border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform relative overflow-hidden flex flex-col h-full min-h-[320px] sm:min-h-[360px] md:min-h-[400px]">
                 <div className={`absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br ${category.gradient} opacity-10 rounded-full -mr-12 -mt-12 sm:-mr-16 sm:-mt-16`} />
-                <div className="relative">
-                  <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">{category.icon}</div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-theme-blue mb-2 sm:mb-3">{category.title}</h3>
-                  <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">{category.description}</p>
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                <div className="relative flex flex-col h-full">
+                  <div className="text-4xl sm:text-5xl mb-3 sm:mb-4 flex-shrink-0">{category.icon}</div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-theme-blue mb-2 sm:mb-3 flex-shrink-0">{category.title}</h3>
+                  <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed flex-grow min-h-[40px]">{category.description}</p>
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-auto">
                     {category.skills.map((skill) => (
                       <div
                         key={skill}
@@ -101,27 +101,27 @@ export default function SkillsSection() {
             <div className="bg-gradient-to-r from-theme-purple to-dark-theme-purple rounded-2xl sm:rounded-3xl p-8 sm:p-10 md:p-12 text-white shadow-2xl">
               <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center">Core Competencies</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 sm:p-6">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 sm:p-7 md:p-8 flex flex-col h-full">
                   <h4 className="font-bold text-base sm:text-lg mb-2 sm:mb-3">Database Administration</h4>
-                  <p className="text-xs sm:text-sm opacity-90">
+                  <p className="text-xs sm:text-sm opacity-90 flex-grow">
                     Oracle 9i-21c, SQL Server 2012-2022, performance tuning, backup & recovery
                   </p>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 sm:p-6">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 sm:p-7 md:p-8 flex flex-col h-full">
                   <h4 className="font-bold text-base sm:text-lg mb-2 sm:mb-3">High Availability</h4>
-                  <p className="text-xs sm:text-sm opacity-90">
+                  <p className="text-xs sm:text-sm opacity-90 flex-grow">
                     RAC, Data Guard, GoldenGate, Always On, clustering solutions
                   </p>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 sm:p-6">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 sm:p-7 md:p-8 flex flex-col h-full">
                   <h4 className="font-bold text-base sm:text-lg mb-2 sm:mb-3">Cloud & DevOps</h4>
-                  <p className="text-xs sm:text-sm opacity-90">
+                  <p className="text-xs sm:text-sm opacity-90 flex-grow">
                     OCI, Azure, Jenkins, GitLab CI, Ansible, Terraform automation
                   </p>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 sm:p-6">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 sm:p-7 md:p-8 flex flex-col h-full">
                   <h4 className="font-bold text-base sm:text-lg mb-2 sm:mb-3">Security & Compliance</h4>
-                  <p className="text-xs sm:text-sm opacity-90">
+                  <p className="text-xs sm:text-sm opacity-90 flex-grow">
                     TDE, Vault, GDPR, ISO, SOX, HIPAA compliance implementation
                   </p>
                 </div>

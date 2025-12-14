@@ -6,118 +6,178 @@
 
 import React from 'react';
 
-import { Fade } from 'react-awesome-reveal';
+import { Fade, Zoom } from 'react-awesome-reveal';
+import Button from '../elements/Button';
 import { PersonalInfo } from '../json/personalData';
 
 export default function Advantage() {
-  const stats = [
-    { label: 'Years Experience', value: PersonalInfo.yearsOfExperience, icon: '📅' },
-    { label: 'VLDB Systems', value: '250TB+', icon: '💾' },
-    { label: 'Projects Completed', value: '50+', icon: '🚀' },
-    { label: 'Certifications', value: '6+', icon: '🏆' },
+  const personalDetails = PersonalInfo.personalDetails || {};
+  const skillsWithPercentages = PersonalInfo.skillsWithPercentages || [];
+
+  const personalInfoLeft = [
+    { label: 'Birthday', value: personalDetails.birthday, icon: '🎂' },
+    { label: 'Website', value: personalDetails.website || 'N/A', icon: '🌐' },
+    { label: 'Degree', value: personalDetails.degree, icon: '🎓' },
+    { label: 'City', value: personalDetails.city, icon: '📍' },
   ];
 
-  const highlights = [
-    {
-      icon: '🔒',
-      title: 'Security & Compliance',
-      description: 'Expert in GDPR, ISO, SOX, HIPAA compliance with TDE and Vault implementations',
-    },
-    {
-      icon: '⚡',
-      title: 'Performance Optimization',
-      description: 'Achieved 40% query performance improvements through systematic tuning and optimization',
-    },
-    {
-      icon: '🔄',
-      title: 'High Availability',
-      description: 'Designed and implemented RAC, Data Guard, and GoldenGate solutions for zero downtime',
-    },
-    {
-      icon: '☁️',
-      title: 'Cloud Migration',
-      description: 'Successfully migrated enterprise systems to OCI and Azure with minimal disruption',
-    },
+  const personalInfoRight = [
+    { label: 'Age', value: personalDetails.age, icon: '📅' },
+    { label: 'Email', value: personalDetails.email, icon: '✉️' },
+    { label: 'Phone', value: personalDetails.phone, icon: '📱' },
+    { label: 'Freelance', value: personalDetails.freelance, icon: '💼' },
   ];
 
   return (
-    <div id="about" className="bg-gradient-to-b from-white to-gray-50 py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32">
+    <div id="about" className="bg-gradient-to-b from-white to-gray-50 py-12 sm:py-16 md:py-20 lg:py-24">
       <div className="container mx-auto px-4 sm:px-5 md:px-6 lg:px-8 xl:px-10 2xl:px-12">
-        <Fade bottom triggerOnce>
-          <div className="text-center mb-10 sm:mb-12 md:mb-14 lg:mb-16">
-            <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-light-theme-purple text-theme-purple rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-6">
+        <Fade direction="down" triggerOnce>
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-theme-blue font-bold mb-4 sm:mb-6 relative inline-block">
               About Me
-            </span>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-8xl text-theme-blue font-bold mb-4 sm:mb-6">
-              Professional Overview
+              <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-theme-purple to-dark-theme-purple transform -translate-y-2" />
             </h1>
-            <p className="font-light text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl lg:max-w-4xl mx-auto px-4 sm:px-0">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-theme-blue font-bold mb-4 sm:mb-6">
+              I&apos;m {PersonalInfo.firstName} ||{' '}
+              <span className="text-theme-purple">{PersonalInfo.role}</span>
+            </h2>
+            <p className="font-light text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
               {PersonalInfo.bio}
             </p>
           </div>
         </Fade>
 
-        <Fade direction="up" triggerOnce>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 md:gap-6 max-w-5xl lg:max-w-6xl mx-auto mb-12 sm:mb-16 md:mb-20">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="bg-white rounded-2xl shadow-xl p-4 sm:p-5 md:p-6 border border-gray-100 hover:shadow-2xl hover:scale-105 transition-all duration-300 transform text-center"
-              >
-                <div className="text-3xl sm:text-4xl mb-2 sm:mb-3">{stat.icon}</div>
-                <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-theme-purple mb-1 sm:mb-2">{stat.value}</p>
-                <p className="text-xs sm:text-sm text-gray-600">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </Fade>
+        {/* Main Content Grid: Personal Details + Skills */}
+        <div className="max-w-6xl mx-auto mb-8 sm:mb-10 md:mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+            {/* Personal Details Section */}
+            <Fade direction="right" delay={100} triggerOnce>
+              <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300 h-full">
+                <div className="grid grid-cols-2 gap-4 sm:gap-6">
+                  {/* Left Column */}
+                  <div className="space-y-4 sm:space-y-6">
+                    {personalInfoLeft.map((item, index) => (
+                      <Zoom key={index} delay={150 + index * 50} triggerOnce>
+                        <div className="flex flex-col h-full min-h-[80px] sm:min-h-[90px] justify-center p-3 sm:p-4 rounded-xl hover:bg-gray-50 transition-colors duration-300 border border-gray-100">
+                          <div className="flex items-center mb-2">
+                            <span className="text-xl sm:text-2xl mr-2 transform hover:scale-110 transition-transform duration-300">
+                              {item.icon}
+                            </span>
+                            <h3 className="font-bold text-theme-blue text-sm sm:text-base">{item.label}:</h3>
+                          </div>
+                          <p className="text-gray-600 text-sm sm:text-base break-words pl-7 sm:pl-8">
+                            {item.value}
+                          </p>
+                        </div>
+                      </Zoom>
+                    ))}
+                  </div>
 
-        <Fade direction="up" delay={200} triggerOnce>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-7 md:gap-8 max-w-5xl lg:max-w-6xl mx-auto mb-12 sm:mb-16 md:mb-20">
-            {highlights.map((highlight) => (
-              <div
-                key={highlight.title}
-                className="bg-white rounded-2xl shadow-xl p-6 sm:p-7 md:p-8 border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
-              >
-                <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">{highlight.icon}</div>
-                <h3 className="text-xl sm:text-2xl font-bold text-theme-blue mb-2 sm:mb-3">{highlight.title}</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{highlight.description}</p>
-              </div>
-            ))}
-          </div>
-        </Fade>
+                  {/* Right Column */}
+                  <div className="space-y-4 sm:space-y-6">
+                    {personalInfoRight.map((item, index) => (
+                      <Zoom key={index} delay={150 + index * 50} triggerOnce>
+                        <div className="flex flex-col h-full min-h-[80px] sm:min-h-[90px] justify-center p-3 sm:p-4 rounded-xl hover:bg-gray-50 transition-colors duration-300 border border-gray-100">
+                          <div className="flex items-center mb-2">
+                            <span className="text-xl sm:text-2xl mr-2 transform hover:scale-110 transition-transform duration-300">
+                              {item.icon}
+                            </span>
+                            <h3 className="font-bold text-theme-blue text-sm sm:text-base">{item.label}:</h3>
+                          </div>
+                          <p className="text-gray-600 text-sm sm:text-base break-words pl-7 sm:pl-8">
+                            {item.value}
+                          </p>
+                        </div>
+                      </Zoom>
+                    ))}
+                  </div>
+                </div>
 
-        <Fade direction="up" delay={400} triggerOnce>
-          <div className="max-w-4xl lg:max-w-5xl mx-auto px-4 sm:px-0">
-            <div className="bg-gradient-to-r from-theme-purple to-dark-theme-purple rounded-2xl sm:rounded-3xl p-8 sm:p-10 md:p-12 text-white shadow-2xl">
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-center">My Approach</h3>
-              <p className="text-base sm:text-lg md:text-xl leading-relaxed text-center mb-6 sm:mb-8 opacity-95 px-2 sm:px-0">
-                I specialize in designing, securing, and optimizing mission-critical database
-                systems at scale. My approach focuses on high availability, disaster recovery,
-                security compliance, and performance optimization. With expertise in managing VLDB
-                systems up to 250TB, I ensure robust, secure, and highly available database
-                infrastructures for government and enterprise environments.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mt-6 sm:mt-8 md:mt-10">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-5 md:p-6 text-center">
-                  <div className="text-2xl sm:text-3xl mb-2 sm:mb-3">🎯</div>
-                  <h4 className="font-bold text-base sm:text-lg mb-1 sm:mb-2">Mission-Critical</h4>
-                  <p className="text-xs sm:text-sm opacity-90">Zero-downtime solutions</p>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-5 md:p-6 text-center">
-                  <div className="text-2xl sm:text-3xl mb-2 sm:mb-3">🛡️</div>
-                  <h4 className="font-bold text-base sm:text-lg mb-1 sm:mb-2">Security First</h4>
-                  <p className="text-xs sm:text-sm opacity-90">Compliance & encryption</p>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-5 md:p-6 text-center">
-                  <div className="text-2xl sm:text-3xl mb-2 sm:mb-3">⚡</div>
-                  <h4 className="font-bold text-base sm:text-lg mb-1 sm:mb-2">Performance</h4>
-                  <p className="text-xs sm:text-sm opacity-90">Optimized & scalable</p>
+                {/* Hire Me and Download CV Buttons */}
+                <Fade direction="up" delay={400} triggerOnce>
+                  <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    <Button
+                      href="#contact"
+                      type="link"
+                      className="group w-full flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-white text-base sm:text-lg bg-gradient-to-r from-theme-purple to-dark-theme-purple rounded-lg shadow-lg hover:shadow-theme-purple/50 hover:scale-105 transition-all duration-300 transform font-semibold"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const element = document.getElementById('contact');
+                        if (element) element.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                    >
+                      Hire Me
+                      <svg
+                        className="ml-2 w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:translate-x-1 transition-transform duration-300"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </Button>
+                    <a
+                      href="/cv.pdf"
+                      download
+                      className="group w-full flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-theme-purple text-base sm:text-lg bg-white border-2 border-theme-purple rounded-lg shadow-lg hover:bg-theme-purple hover:text-white hover:scale-105 transition-all duration-300 transform font-semibold"
+                    >
+                      Download CV
+                      <svg
+                        className="ml-2 w-5 h-5 sm:w-6 sm:h-6 text-theme-purple group-hover:text-white transition-colors duration-300"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </Fade>
+              </div>
+            </Fade>
+
+            {/* Skills Section */}
+            <Fade direction="left" delay={200} triggerOnce>
+              <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300 h-full">
+                <h2 className="text-2xl sm:text-3xl font-bold text-theme-blue mb-6 sm:mb-8">Skills</h2>
+                <div className="space-y-5 sm:space-y-6">
+                  {skillsWithPercentages.map((skill, index) => (
+                    <Fade key={index} direction="left" delay={300 + index * 100} triggerOnce>
+                      <div className="group">
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="font-semibold text-theme-blue text-sm sm:text-base group-hover:text-theme-purple transition-colors duration-300">
+                            {skill.name}
+                          </span>
+                          <span className="text-theme-purple font-bold text-sm sm:text-base">
+                            {skill.percentage}%
+                          </span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-3 sm:h-4 overflow-hidden shadow-inner">
+                          <div
+                            className="bg-gradient-to-r from-theme-purple to-dark-theme-purple h-full rounded-full transition-all duration-1000 ease-out transform group-hover:scale-105"
+                            style={{ width: `${skill.percentage}%` }}
+                          />
+                        </div>
+                      </div>
+                    </Fade>
+                  ))}
                 </div>
               </div>
-            </div>
+            </Fade>
           </div>
-        </Fade>
+        </div>
       </div>
     </div>
   );

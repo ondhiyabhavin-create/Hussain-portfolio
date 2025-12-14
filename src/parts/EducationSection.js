@@ -71,13 +71,13 @@ export default function EducationSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 md:gap-8 max-w-6xl lg:max-w-7xl w-full mb-12 sm:mb-14 md:mb-16">
           {certifications.map((cert, index) => (
             <Fade direction="up" delay={index * 100} triggerOnce key={cert.name}>
-              <div className="group bg-white rounded-2xl sm:rounded-3xl shadow-xl p-6 sm:p-7 md:p-8 border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform relative overflow-hidden">
+              <div className="group bg-white rounded-2xl sm:rounded-3xl shadow-xl p-6 sm:p-7 md:p-8 border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform relative overflow-hidden flex flex-col h-full">
                 <div className="absolute top-0 right-0 w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-theme-purple to-dark-theme-purple opacity-10 rounded-full -mr-10 -mt-10 sm:-mr-12 sm:-mt-12" />
-                <div className="relative">
+                <div className="relative flex flex-col h-full">
                   <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">{cert.icon}</div>
                   <h3 className="text-xl sm:text-2xl font-bold text-theme-blue mb-1 sm:mb-2">{cert.name}</h3>
                   <p className="text-theme-purple font-semibold mb-2 sm:mb-3 text-sm sm:text-base">{cert.issuer}</p>
-                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">{cert.description}</p>
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 flex-grow">{cert.description}</p>
                   <span className="inline-block px-2 sm:px-3 py-1 bg-light-theme-purple text-theme-purple rounded-full text-xs font-medium">
                     {cert.year}
                   </span>

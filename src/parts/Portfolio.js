@@ -30,7 +30,7 @@ export default function Portfolio({ data }) {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 md:gap-8 max-w-6xl lg:max-w-7xl w-full">
           {data.map((item, index) => (
             <Fade direction="up" delay={index * 150} triggerOnce key={item.id}>
-              <div className="group bg-white rounded-2xl sm:rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform">
+              <div className="group bg-white rounded-2xl sm:rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform flex flex-col h-full">
                 <div className="relative overflow-hidden">
                   <img
                     src={item.imageUrl}
@@ -44,12 +44,12 @@ export default function Portfolio({ data }) {
                     </span>
                   </div>
                 </div>
-                <div className="p-6 sm:p-7 md:p-8">
+                <div className="p-6 sm:p-7 md:p-8 flex flex-col flex-grow">
                   <h3 className="text-xl sm:text-2xl font-bold text-theme-blue mb-2 sm:mb-3">{item.title}</h3>
                   {item.problem && (
                     <div className="mb-4">
                       <p className="text-sm font-semibold text-gray-500 mb-2">Challenge:</p>
-                      <p className="text-gray-700 leading-relaxed">{item.problem}</p>
+                      <p className="text-gray-700 leading-relaxed text-sm sm:text-base">{item.problem}</p>
                     </div>
                   )}
                   {item.responsibility && item.responsibility.length > 0 && (
@@ -68,7 +68,7 @@ export default function Portfolio({ data }) {
                     </div>
                   )}
                   {item.outcome && (
-                    <div className="mt-4 pt-4 border-t border-gray-200">
+                    <div className="mt-auto pt-4 border-t border-gray-200">
                       <p className="text-sm font-semibold text-theme-purple mb-2">Result:</p>
                       <p className="text-gray-700 text-sm leading-relaxed">{item.outcome}</p>
                     </div>
