@@ -233,13 +233,13 @@ export default function Advantage() {
                             {skill.name}
                           </span>
                           <span className="text-theme-purple font-bold text-sm sm:text-base">
-                            {skill.percentage}%
+                            100%
                           </span>
                         </div>
                         <div className="w-full bg-gray-200 rounded-full h-3 sm:h-4 overflow-hidden shadow-inner">
                           <div
                             className="bg-gradient-to-r from-theme-purple to-dark-theme-purple h-full rounded-full transition-all duration-1000 ease-out transform group-hover:scale-105"
-                            style={{ width: `${skill.percentage}%` }}
+                            style={{ width: '100%' }}
                           />
                         </div>
                       </div>
