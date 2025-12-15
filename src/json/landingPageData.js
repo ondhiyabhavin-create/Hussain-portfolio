@@ -33,7 +33,7 @@ export const Services = [
     title: "Databases",
     imageUrl: Web,
     animation: "left",
-    description: "Comprehensive database administration and management across Oracle, SQL Server, MongoDB, PostgreSQL, EBS Suite, and Exadata platforms",
+    description: "Comprehensive database administration,Implementation and management across Oracle, SQL Server, MongoDB, PostgreSQL, EBS Suite, and Exadata platforms",
     detailedDescription: "Expert database administration services covering a wide range of enterprise database platforms. I provide end-to-end solutions for Oracle Database (including RAC, ASM, Data Guard), SQL Server, MongoDB, PostgreSQL, Oracle E-Business Suite, and Oracle Exadata. My services include database installation, configuration, performance tuning, high availability setup, disaster recovery planning, and 24/7 support. With extensive experience in mission-critical environments, I ensure optimal performance, security compliance, and zero-downtime operations across all database platforms.",
     features: [
       "Oracle Database (RAC, ASM, Data Guard, RMAN)",
