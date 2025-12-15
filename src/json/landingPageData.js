@@ -21,7 +21,7 @@ import UIUX2 from "../assets/images/TeamMembers/UIUX2.jpg";
 
 // Portfolio Img Imports
 import OracleDataGuard from "../assets/images/Portfolio/oracle-data-guard-2.webp";
-import OracleRAC from "../assets/images/Portfolio/oracle-rac.jpg";
+import OracleRAC from "../assets/images/Portfolio/final-45.jpeg";
 import SQLQuery from "../assets/images/Portfolio/sql-query.png";
 
 // Advantages and Testimonials removed - not used in personal portfolio
@@ -77,7 +77,7 @@ export const Services = [
       "Automated Deployment",
       "Cloud Cost Optimization",
     ],
-    technologies: ["OCI", "Azure SQL", "WebLogic", "Jenkins", "GitLab CI", "Ansible", "Terraform"],
+    technologies: ["OCI", "Azure SQL", "WebLogic", "Jenkins", "GitLab CI", "Ansible", "Docker", "Kubernetes"],
   },
 ];
 

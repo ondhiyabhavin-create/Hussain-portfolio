@@ -105,7 +105,7 @@ export default function Advantage() {
                       const isWebsite = item.label === 'Website' && item.value && item.value !== 'N/A' && item.value.startsWith('http');
                       return (
                         <Zoom key={index} delay={150 + index * 50} triggerOnce>
-                          <div className="flex flex-col h-full min-h-[80px] sm:min-h-[90px] justify-center p-3 sm:p-4 rounded-xl hover:bg-gray-50 transition-colors duration-300 border border-gray-100">
+                          <div className="flex flex-col h-full min-h-[80px] sm:min-h-[90px] justify-center p-3 sm:p-4 rounded-xl hover:bg-gray-50 transition-colors duration-300 border border-gray-100 overflow-hidden">
                             <div className="flex items-center mb-2">
                               <span className="text-xl sm:text-2xl mr-2 transform hover:scale-110 transition-transform duration-300">
                                 {item.icon}
@@ -117,9 +117,9 @@ export default function Advantage() {
                                 href={item.value}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-theme-purple hover:text-dark-theme-purple text-sm sm:text-base break-words pl-7 sm:pl-8 hover:underline transition-colors duration-300"
+                                className="text-theme-purple hover:text-dark-theme-purple text-sm sm:text-base pl-7 sm:pl-8 hover:underline transition-colors duration-300 font-medium"
                               >
-                                {item.value}
+                                Portfolio
                               </a>
                             ) : (
                               <p className="text-gray-600 text-sm sm:text-base break-words pl-7 sm:pl-8">
@@ -138,7 +138,7 @@ export default function Advantage() {
                       const isEmail = item.label === 'Email' && item.value;
                       return (
                         <Zoom key={index} delay={150 + index * 50} triggerOnce>
-                          <div className="flex flex-col h-full min-h-[80px] sm:min-h-[90px] justify-center p-3 sm:p-4 rounded-xl hover:bg-gray-50 transition-colors duration-300 border border-gray-100">
+                          <div className="flex flex-col h-full min-h-[80px] sm:min-h-[90px] justify-center p-3 sm:p-4 rounded-xl hover:bg-gray-50 transition-colors duration-300 border border-gray-100 overflow-hidden">
                             <div className="flex items-center mb-2">
                               <span className="text-xl sm:text-2xl mr-2 transform hover:scale-110 transition-transform duration-300">
                                 {item.icon}
@@ -148,9 +148,10 @@ export default function Advantage() {
                             {isEmail ? (
                               <a
                                 href={`mailto:${item.value}`}
-                                className="text-gray-600 hover:text-theme-purple text-sm sm:text-base whitespace-nowrap pl-7 sm:pl-8 hover:underline transition-colors duration-300"
+                                className="text-gray-600 hover:text-theme-purple text-sm sm:text-base whitespace-nowrap pl-6 sm:pl-7 hover:underline transition-colors duration-300"
+                                title={item.value}
                               >
-                                {item.value}
+                                ashfaq
                               </a>
                             ) : (
                               <p className="text-gray-600 text-sm sm:text-base break-words pl-7 sm:pl-8">
