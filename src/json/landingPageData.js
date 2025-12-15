@@ -43,7 +43,7 @@ export const Services = [
       "Backup & Recovery Strategies",
       "Disaster Recovery Planning",
     ],
-    technologies: ["Oracle Database (9i-21c)", "RAC", "ASM", "Data Guard", "RMAN"],
+    technologies: ["Oracle Databases", "RAC", "ASM", "Data Guard", "RMAN"],
   },
   {
     id: "service2",

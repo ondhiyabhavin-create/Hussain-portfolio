@@ -101,21 +101,35 @@ export default function Advantage() {
                 <div className="grid grid-cols-2 gap-4 sm:gap-6">
                   {/* Left Column */}
                   <div className="space-y-4 sm:space-y-6">
-                    {personalInfoLeft.map((item, index) => (
-                      <Zoom key={index} delay={150 + index * 50} triggerOnce>
-                        <div className="flex flex-col h-full min-h-[80px] sm:min-h-[90px] justify-center p-3 sm:p-4 rounded-xl hover:bg-gray-50 transition-colors duration-300 border border-gray-100">
-                          <div className="flex items-center mb-2">
-                            <span className="text-xl sm:text-2xl mr-2 transform hover:scale-110 transition-transform duration-300">
-                              {item.icon}
-                            </span>
-                            <h3 className="font-bold text-theme-blue text-sm sm:text-base">{item.label}:</h3>
+                    {personalInfoLeft.map((item, index) => {
+                      const isWebsite = item.label === 'Website' && item.value && item.value !== 'N/A' && item.value.startsWith('http');
+                      return (
+                        <Zoom key={index} delay={150 + index * 50} triggerOnce>
+                          <div className="flex flex-col h-full min-h-[80px] sm:min-h-[90px] justify-center p-3 sm:p-4 rounded-xl hover:bg-gray-50 transition-colors duration-300 border border-gray-100">
+                            <div className="flex items-center mb-2">
+                              <span className="text-xl sm:text-2xl mr-2 transform hover:scale-110 transition-transform duration-300">
+                                {item.icon}
+                              </span>
+                              <h3 className="font-bold text-theme-blue text-sm sm:text-base">{item.label}:</h3>
+                            </div>
+                            {isWebsite ? (
+                              <a
+                                href={item.value}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-theme-purple hover:text-dark-theme-purple text-sm sm:text-base break-words pl-7 sm:pl-8 hover:underline transition-colors duration-300"
+                              >
+                                {item.value}
+                              </a>
+                            ) : (
+                              <p className="text-gray-600 text-sm sm:text-base break-words pl-7 sm:pl-8">
+                                {item.value}
+                              </p>
+                            )}
                           </div>
-                          <p className="text-gray-600 text-sm sm:text-base break-words pl-7 sm:pl-8">
-                            {item.value}
-                          </p>
-                        </div>
-                      </Zoom>
-                    ))}
+                        </Zoom>
+                      );
+                    })}
                   </div>
 
                   {/* Right Column */}

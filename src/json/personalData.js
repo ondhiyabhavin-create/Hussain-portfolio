@@ -16,7 +16,7 @@ export const PersonalInfo = {
   personalDetails: {
     birthday: '1982-04-04',
     age: '43',
-    website: '',
+    website: 'https://mohammed-ashfaq-hussain.vercel.app/',
     email: 'nswaknwaj@gmail.com',
     degree: 'Master of Computer Application, Amity University',
     phone: '+966556024406',
@@ -67,8 +67,8 @@ export const PersonalInfo = {
 
 // Skills
 export const Skills = {
-  oracle: ['Oracle Database (9i–21c)', 'RAC', 'ASM', 'Data Guard', 'GoldenGate'],
-  sqlServer: ['SQL Server (2012–2022)', 'Azure SQL', 'High Availability'],
+  oracle: ['Oracle Databases', 'RAC', 'ASM', 'Data Guard', 'GoldenGate'],
+  sqlServer: ['SQL Server', 'Azure SQL', 'High Availability'],
   middleware: ['WebLogic', 'Oracle Apps DBA'],
   cloud: ['OCI', 'Azure SQL', 'Cloud Migration'],
   devops: ['Jenkins', 'GitLab CI', 'Ansible', 'Terraform'],
