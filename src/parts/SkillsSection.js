@@ -10,7 +10,7 @@ import { Skills } from '../json/personalData';
 export default function SkillsSection() {
   const skillCategories = [
     {
-      title: 'Oracle Database',
+      title: 'Oracle Database and Implementation',
       icon: '🗄️',
       skills: Skills.oracle,
       description: 'Expert in Oracle database administration, RAC, ASM, and high availability',
