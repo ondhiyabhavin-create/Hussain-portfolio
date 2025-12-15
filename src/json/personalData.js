@@ -4,7 +4,7 @@
 export const PersonalInfo = {
   name: 'Mohammed Ashfaq Hussain',
   firstName: 'Hussain',
-  role: 'Oracle RAC, Weblogic & E‑Business Suite Specialist | SQL Server Expert | DevOps Automation',
+  role: 'Oracle RAC, WebLogic & E‑Business Suite Specialist | SQL Server Expert | Cloud & DevOps Automation Engineer',
   tagline: 'Designing, securing, and optimizing mission-critical database systems at scale',
   taglines: [
     'Designing, securing, and optimizing mission-critical database systems at scale',
