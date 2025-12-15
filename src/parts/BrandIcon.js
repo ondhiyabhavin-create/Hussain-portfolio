@@ -3,16 +3,52 @@
 /* eslint-disable import/extensions */
 
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 import Button from "../elements/Button";
 
 export default function BrandIcon() {
+  const location = useLocation();
+  const path = location.pathname;
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (path !== '/') {
+      window.location.href = '/#home';
+    } else {
+      const element = document.getElementById('home');
+      if (element) {
+        // Smooth scroll with offset for fixed header
+        const headerHeight = 80;
+        const elementPosition = element.getBoundingClientRect().top
+          + window.pageYOffset;
+        const offsetPosition = elementPosition - headerHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+      } else {
+        // If home section not found, scroll to top
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      }
+    }
+  };
+
   return (
-    <Button className="" type="link" href="/">
-      <p className="text-theme-blue text-4xl font-medium ">
+    <button
+      type="button"
+      onClick={handleClick}
+      className="cursor-pointer transition-all duration-300 transform hover:scale-105 focus:outline-none"
+      aria-label="Go to home"
+    >
+      <p className="text-theme-blue text-4xl font-medium">
         Ashfaq
         <span className="text-theme-purple">.dev</span>
       </p>
-    </Button>
+    </button>
   );
 }
