@@ -137,7 +137,7 @@ export default function SkillsSection() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 sm:p-7 md:p-8 flex flex-col h-full">
                   <h4 className="font-bold text-base sm:text-lg mb-2 sm:mb-3">Cloud & DevOps</h4>
                   <p className="text-xs sm:text-sm opacity-90 flex-grow">
-                    OCI, Azure, Jenkins, GitLab CI, Ansible, Terraform automation
+                    OCI, Azure, Jenkins, GitLab CI, Ansible, Docker, Kubernetes automation
                   </p>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 sm:p-7 md:p-8 flex flex-col h-full">

@@ -68,11 +68,11 @@ export const Services = [
     imageUrl: UIUX,
     animation: "right",
     description: "OCI/Azure migration, WebLogic administration, and DevOps automation",
-    detailedDescription: "End-to-end cloud migration services and DevOps automation for database infrastructure. I help organizations migrate their database workloads to Oracle Cloud Infrastructure (OCI) and Azure, ensuring minimal downtime and optimal performance. Additionally, I implement DevOps practices using Jenkins, GitLab CI, Ansible, and Terraform to automate database operations and improve deployment efficiency.",
+    detailedDescription: "End-to-end cloud migration services and DevOps automation for database infrastructure. I help organizations migrate their database workloads to Oracle Cloud Infrastructure (OCI) and Azure, ensuring minimal downtime and optimal performance. Additionally, I implement DevOps practices using Jenkins, GitLab CI, Ansible, Kubernetes and Docker to automate database operations and improve deployment efficiency.",
     features: [
       "OCI & Azure Cloud Migration",
       "WebLogic Administration",
-      "Infrastructure as Code (Terraform)",
+      "Infrastructure as Code (Docker and Kubernetes)",
       "CI/CD Pipeline Setup",
       "Automated Deployment",
       "Cloud Cost Optimization",
