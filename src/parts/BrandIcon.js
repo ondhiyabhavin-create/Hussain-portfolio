@@ -5,8 +5,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 
-import Button from "../elements/Button";
-
 export default function BrandIcon() {
   const location = useLocation();
   const path = location.pathname;
