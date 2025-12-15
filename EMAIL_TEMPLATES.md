@@ -482,7 +482,7 @@ Thank You for Contacting Mohammed Ashfaq Hussain - I'll Get Back to You Soon!
                                         </a>
                                     </td>
                                     <td class="social-icons" style="padding: 0 10px;">
-                                        <a href="mailto:nswaknwj@gmail.com" class="social-link" style="display: inline-block; width: 40px; height: 40px; background-color: rgba(255, 255, 255, 0.1); border-radius: 50%; text-align: center; line-height: 40px; text-decoration: none;">
+                                        <a href="mailto:nswaknwaj@gmail.com" class="social-link" style="display: inline-block; width: 40px; height: 40px; background-color: rgba(255, 255, 255, 0.1); border-radius: 50%; text-align: center; line-height: 40px; text-decoration: none;">
                                             <span style="color: #ffffff; font-size: 18px;">✉️</span>
                                         </a>
                                     </td>
@@ -500,7 +500,7 @@ Thank You for Contacting Mohammed Ashfaq Hussain - I'll Get Back to You Soon!
                         <td class="email-footer" style="background-color: #f8f9fa; padding: 25px 30px; text-align: center; border-top: 1px solid #e9ecef;">
                             <p style="margin: 0; color: #666666; font-size: 13px; line-height: 1.6;">
                                 This is an automated confirmation email. If you have any urgent questions,<br style="display: none;">
-                                <span style="display: inline-block; margin-top: 5px;">please contact me directly at <a href="mailto:nswaknwj@gmail.com" style="color: #6610f2; text-decoration: none;">nswaknwj@gmail.com</a></span>
+                                <span style="display: inline-block; margin-top: 5px;">please contact me directly at <a href="mailto:nswaknwaj@gmail.com" style="color: #6610f2; text-decoration: none;">nswaknwaj@gmail.com</a></span>
                             </p>
                             <p style="margin: 15px 0 0 0; color: #999999; font-size: 12px;">
                                 © 2025 Mohammed Ashfaq Hussain. All rights reserved.
