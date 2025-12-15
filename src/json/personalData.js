@@ -90,7 +90,7 @@ export const Experience = [
       'Designing and implementing Oracle RAC, Data Guard, and GoldenGate solutions',
       'Leading database migrations, upgrades, and performance optimization projects',
       'Ensuring compliance with GDPR, ISO, SOX, and HIPAA security standards',
-      'Automating database operations using DevOps tools (Jenkins, GitLab CI, Ansible, Terraform)',
+      'Automating database operations using DevOps tools (Jenkins, GitLab CI, Ansible,Kubernetes ,Docker)',
     ],
     achievements: [
       'Successfully implemented zero data loss Data Guard DR with FSFO',
