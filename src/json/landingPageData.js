@@ -5,14 +5,7 @@ import Web from "../assets/images/Services/Web.png";
 import Mobile from "../assets/images/Services/Mobile.png";
 import UIUX from "../assets/images/Services/Design.png";
 
-// Portfolio Img Imports
-import Recruiting from "../assets/images/Portfolio/Recruiting.png";
-import Stream from "../assets/images/Portfolio/Stream.png";
-import Freelance from "../assets/images/Portfolio/Freelance.png";
-
-// Advantages and Testimonials removed - not used in personal portfolio
-
-// TeamMembers
+// TeamMembers Imports
 import CEO from "../assets/images/TeamMembers/CEO.jpg";
 import HRD from "../assets/images/TeamMembers/HRD.jpg";
 import Finance from "../assets/images/TeamMembers/Finance.jpg";
@@ -25,6 +18,13 @@ import Mobile1 from "../assets/images/TeamMembers/Mobile1.jpg";
 import Mobile2 from "../assets/images/TeamMembers/Mobile2.jpg";
 import UIUX1 from "../assets/images/TeamMembers/UIUX1.jpg";
 import UIUX2 from "../assets/images/TeamMembers/UIUX2.jpg";
+
+// Portfolio Img Imports
+import OracleDataGuard from "../assets/images/Portfolio/oracle-data-guard-2.webp";
+import OracleRAC from "../assets/images/Portfolio/oracle-rac.jpg";
+import SQLQuery from "../assets/images/Portfolio/sql-query.png";
+
+// Advantages and Testimonials removed - not used in personal portfolio
 
 // Personal Services
 export const Services = [
@@ -86,7 +86,7 @@ export const Portfolios = [
   {
     id: "project1",
     title: "Oracle Data Guard DR Implementation",
-    imageUrl: Recruiting,
+    imageUrl: OracleDataGuard,
     type: "Disaster Recovery / High Availability",
     responsibility: ["Oracle Data Guard", "FSFO", "Zero Data Loss"],
     credit: "",
@@ -96,7 +96,7 @@ export const Portfolios = [
   {
     id: "project2",
     title: "Implementation Oracle RAC ASM",
-    imageUrl: Stream,
+    imageUrl: OracleRAC,
     type: "Database Upgrade / RAC",
     responsibility: ["Oracle RAC", "ASM", "Upgrade Strategy"],
     credit: "",
@@ -106,7 +106,7 @@ export const Portfolios = [
   {
     id: "project3",
     title: "Performance Tuning & Optimization",
-    imageUrl: Freelance,
+    imageUrl: SQLQuery,
     type: "Performance Optimization",
     responsibility: ["SQL Tuning", "Index Optimization", "Query Analysis"],
     credit: "",

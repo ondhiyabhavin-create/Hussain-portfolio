@@ -7,6 +7,7 @@ import { Fade } from 'react-awesome-reveal';
 
 import Button from '../../elements/Button';
 import { Projects } from '../../json/personalPortfolioData';
+import { getProjectIcon } from '../../components/ProjectIcons';
 
 export default function ProjectsPersonal() {
   return (
@@ -21,10 +22,15 @@ export default function ProjectsPersonal() {
       </Fade>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full">
-        {Projects.map((project, index) => (
-          <Fade direction="up" delay={index * 100} triggerOnce key={project.id}>
-            <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <h3 className="text-2xl font-bold text-theme-blue mb-3">{project.title}</h3>
+        {Projects.map((project, index) => {
+          const ProjectIcon = getProjectIcon(project.title);
+          return (
+            <Fade direction="up" delay={index * 100} triggerOnce key={project.id}>
+              <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div className="mb-4 h-32 w-full flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden">
+                  <ProjectIcon className="w-24 h-24" />
+                </div>
+                <h3 className="text-2xl font-bold text-theme-blue mb-3">{project.title}</h3>
 
               <div className="mb-4">
                 <h4 className="text-sm font-semibold text-gray-500 mb-2">Problem Statement:</h4>
@@ -94,8 +100,11 @@ export default function ProjectsPersonal() {
               </div>
             </div>
           </Fade>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
 }
+
+

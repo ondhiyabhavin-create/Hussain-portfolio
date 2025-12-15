@@ -47,7 +47,18 @@ export default function Advantage() {
             </h1>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-theme-blue font-bold mb-4 sm:mb-6">
               I&apos;m Ashfaq ||{' '}
-              <span className="text-theme-purple">{PersonalInfo.role}</span>
+              <span className="text-theme-purple">
+                {PersonalInfo.role.split('E‑Business Suite').map((part, index) => (
+                  index === 0 ? (
+                    <span key={`role-about-${part.slice(0, 10)}`}>
+                      {part}
+                      <span className="whitespace-nowrap">E‑Business Suite</span>
+                    </span>
+                  ) : (
+                    <span key={`role-about-${part.slice(0, 10)}`}>{part}</span>
+                  )
+                ))}
+              </span>
             </h2>
           </div>
         </Fade>

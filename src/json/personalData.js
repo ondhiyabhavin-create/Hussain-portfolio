@@ -4,7 +4,7 @@
 export const PersonalInfo = {
   name: 'Mohammed Ashfaq Hussain',
   firstName: 'Hussain',
-  role: 'Senior Oracle & SQL Server Database Consultant',
+  role: 'Oracle RAC, Weblogic & E‑Business Suite Specialist | SQL Server Expert | DevOps Automation',
   tagline: 'Designing, securing, and optimizing mission-critical database systems at scale',
   taglines: [
     'Designing, securing, and optimizing mission-critical database systems at scale',
@@ -60,6 +60,7 @@ export const PersonalInfo = {
   email: 'nswaknwj@gmail.com',
   phone: '+966556024406',
   linkedin: 'https://linkedin.com/in/mohammed-ashfaq-hussain-b0391534',
+  github: 'https://github.com/mashfaq007',
   location: 'Riyadh, Saudi Arabia',
   yearsOfExperience: '14+',
 };

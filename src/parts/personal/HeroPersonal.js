@@ -17,7 +17,16 @@ export default function HeroPersonal() {
             Hi, I&apos;m{' '}
             <span className="text-theme-purple">{PersonalInfo.name}</span>
             <br />
-            {PersonalInfo.role}
+            {PersonalInfo.role.split('E‑Business Suite').map((part, index) => (
+              index === 0 ? (
+                <span key={`role-hero-${part.slice(0, 10)}`}>
+                  {part}
+                  <span className="whitespace-nowrap">E‑Business Suite</span>
+                </span>
+              ) : (
+                <span key={`role-hero-${part.slice(0, 10)}`}>{part}</span>
+              )
+            ))}
           </h1>
         </Fade>
 
@@ -85,7 +94,18 @@ export default function HeroPersonal() {
                 <h3 className="text-center text-2xl font-bold text-theme-blue mb-2">
                   {PersonalInfo.name}
                 </h3>
-                <p className="text-center text-gray-600">{PersonalInfo.role}</p>
+                <p className="text-center text-gray-600">
+                  {PersonalInfo.role.split('E‑Business Suite').map((part, index) => (
+                    index === 0 ? (
+                      <span key={`role-card-${part.slice(0, 10)}`}>
+                        {part}
+                        <span className="whitespace-nowrap">E‑Business Suite</span>
+                      </span>
+                    ) : (
+                      <span key={`role-card-${part.slice(0, 10)}`}>{part}</span>
+                    )
+                  ))}
+                </p>
               </div>
             </div>
           </div>
@@ -94,3 +114,5 @@ export default function HeroPersonal() {
     </section>
   );
 }
+
+

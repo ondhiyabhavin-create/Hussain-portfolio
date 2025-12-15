@@ -176,8 +176,10 @@ export const PersonalInfo = {
   tagline: 'Building scalable systems and solving complex problems with clean, efficient code',
   bio: 'Experienced engineer with 8+ years building robust backend systems, scalable architectures, and cloud solutions. Passionate about automation, performance optimization, and clean code.',
   email: 'your.email@example.com',
-  github: 'https://github.com',
+  github: 'https://github.com/mashfaq007',
   linkedin: 'https://linkedin.com',
   location: 'San Francisco, CA',
   yearsOfExperience: '8+',
 };
+
+

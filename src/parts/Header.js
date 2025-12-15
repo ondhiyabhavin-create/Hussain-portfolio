@@ -19,30 +19,46 @@ export default function Header() {
   const location = useLocation();
   const path = location.pathname;
 
-  // Detect active section on scroll
+  // Detect active section on scroll with smooth transitions
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'education', 'projects', 'experience', 'contact'];
-      const scrollPosition = window.scrollY + 200;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const sections = ['home', 'about', 'skills', 'education', 'projects', 'experience', 'contact'];
+          const scrollPosition = window.scrollY + 250; // Increased offset for better detection
 
-      // Check if at top of page
-      if (window.scrollY < 100) {
-        setActiveSection('home');
-        return;
-      }
+          // Check if at top of page
+          if (window.scrollY < 150) {
+            setActiveSection('home');
+            ticking = false;
+            return;
+          }
 
-      // Find active section
-      for (let i = sections.length - 1; i >= 0; i -= 1) {
-        const section = document.getElementById(sections[i]);
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i]);
-          break;
-        }
+          // Find active section
+          for (let i = sections.length - 1; i >= 0; i -= 1) {
+            const section = document.getElementById(sections[i]);
+            if (section) {
+              const sectionTop = section.offsetTop;
+              const sectionHeight = section.offsetHeight;
+              const sectionBottom = sectionTop + sectionHeight;
+
+              if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                setActiveSection(sections[i]);
+                ticking = false;
+                return;
+              }
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
     if (path === '/') {
-      window.addEventListener('scroll', handleScroll);
+      window.addEventListener('scroll', handleScroll, { passive: true });
       handleScroll();
       return () => window.removeEventListener('scroll', handleScroll);
     }
@@ -78,7 +94,16 @@ export default function Header() {
     } else {
       const element = document.getElementById(item.id);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        // Smooth scroll with offset for fixed header
+        const headerHeight = 80;
+        const elementPosition = element.getBoundingClientRect().top
+          + window.pageYOffset;
+        const offsetPosition = elementPosition - headerHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
       }
     }
   };
@@ -90,7 +115,7 @@ export default function Header() {
 
         <button
           type="button"
-          className="lg:hidden relative z-50 p-2 rounded-lg text-theme-blue hover:bg-gray-100 focus:outline-none transition-all duration-300 transform hover:scale-110"
+          className="lg:hidden relative z-50 p-2 rounded-lg text-theme-blue hover:bg-gray-100 focus:outline-none transition-all duration-300 transform hover:scale-110 cursor-pointer"
           onClick={() => setIsCollapse(!isCollapse)}
           aria-label="Toggle menu"
         >
@@ -112,13 +137,16 @@ export default function Header() {
               key={item.id}
               type="button"
               onClick={(e) => handleNavClick(e, item)}
-              className={`px-3 xl:px-4 2xl:px-5 py-2 rounded-full font-medium text-xs xl:text-sm transition-all duration-300 ${
+              className={`relative px-3 xl:px-4 2xl:px-5 py-2 rounded-full font-medium text-xs xl:text-sm transition-all duration-500 ease-in-out transform hover:scale-110 cursor-pointer ${
                 isActive
-                  ? 'bg-gradient-to-r from-theme-purple to-dark-theme-purple text-white shadow-md'
-                  : 'text-gray-700 hover:text-theme-purple'
+                  ? 'bg-gradient-to-r from-theme-purple to-dark-theme-purple text-white shadow-lg scale-105'
+                  : 'text-gray-700 hover:text-theme-purple hover:bg-gray-100'
               }`}
             >
-              {item.name}
+              <span className="relative z-10">{item.name}</span>
+              {isActive && (
+                <span className="absolute inset-0 bg-gradient-to-r from-theme-purple to-dark-theme-purple rounded-full animate-pulse opacity-75" />
+              )}
             </button>
           );
         })}
@@ -126,20 +154,33 @@ export default function Header() {
           type="button"
           onClick={(e) => {
             e.preventDefault();
+            setIsCollapse(false);
             if (path !== '/') {
               window.location.href = '/#contact';
             } else {
               const element = document.getElementById('contact');
-              if (element) element.scrollIntoView({ behavior: 'smooth' });
+              if (element) {
+                const headerHeight = 80;
+                const elementPosition = element.getBoundingClientRect().top
+                  + window.pageYOffset;
+                const offsetPosition = elementPosition - headerHeight;
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: 'smooth',
+                });
+              }
             }
           }}
-          className={`ml-1 xl:ml-2 px-4 xl:px-5 2xl:px-6 py-2 rounded-full font-medium text-xs xl:text-sm transition-all duration-300 ${
+          className={`relative ml-1 xl:ml-2 px-4 xl:px-5 2xl:px-6 py-2 rounded-full font-medium text-xs xl:text-sm transition-all duration-500 ease-in-out transform hover:scale-110 cursor-pointer ${
             path === '/' && activeSection === 'contact'
-              ? 'bg-gradient-to-r from-theme-purple to-dark-theme-purple text-white shadow-md'
-              : 'text-gray-700 hover:text-theme-purple'
+              ? 'bg-gradient-to-r from-theme-purple to-dark-theme-purple text-white shadow-lg scale-105'
+              : 'text-gray-700 hover:text-theme-purple hover:bg-gray-100'
           }`}
         >
-          Contact
+          <span className="relative z-10">Contact</span>
+          {path === '/' && activeSection === 'contact' && (
+            <span className="absolute inset-0 bg-gradient-to-r from-theme-purple to-dark-theme-purple rounded-full animate-pulse opacity-75" />
+          )}
         </button>
       </nav>
 
@@ -162,13 +203,16 @@ export default function Header() {
                     <button
                       type="button"
                       onClick={(e) => handleNavClick(e, item)}
-                      className={`w-full px-5 py-3.5 rounded-xl font-semibold text-base transition-all duration-300 transform hover:scale-105 ${
+                      className={`relative w-full px-5 py-3.5 rounded-xl font-semibold text-base transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-md cursor-pointer ${
                         isActive
-                          ? 'bg-gradient-to-r from-theme-purple to-dark-theme-purple text-white shadow-lg'
+                          ? 'bg-gradient-to-r from-theme-purple to-dark-theme-purple text-white shadow-lg scale-105'
                           : 'text-gray-800 hover:text-theme-purple hover:bg-gray-100 border border-gray-200'
                       }`}
                     >
-                      {item.name}
+                      <span className="relative z-10">{item.name}</span>
+                      {isActive && (
+                        <span className="absolute inset-0 bg-gradient-to-r from-theme-purple to-dark-theme-purple rounded-xl animate-pulse opacity-75" />
+                      )}
                     </button>
                   </li>
                 );
@@ -183,16 +227,28 @@ export default function Header() {
                       window.location.href = '/#contact';
                     } else {
                       const element = document.getElementById('contact');
-                      if (element) element.scrollIntoView({ behavior: 'smooth' });
+                      if (element) {
+                        const headerHeight = 80;
+                        const elementPosition = element.getBoundingClientRect().top
+                          + window.pageYOffset;
+                        const offsetPosition = elementPosition - headerHeight;
+                        window.scrollTo({
+                          top: offsetPosition,
+                          behavior: 'smooth',
+                        });
+                      }
                     }
                   }}
-                  className={`w-full px-5 py-3.5 rounded-xl font-semibold text-base transition-all duration-300 transform hover:scale-105 ${
+                  className={`relative w-full px-5 py-3.5 rounded-xl font-semibold text-base transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-md cursor-pointer ${
                     path === '/' && activeSection === 'contact'
-                      ? 'bg-gradient-to-r from-theme-purple to-dark-theme-purple text-white shadow-lg'
+                      ? 'bg-gradient-to-r from-theme-purple to-dark-theme-purple text-white shadow-lg scale-105'
                       : 'text-gray-800 hover:text-theme-purple hover:bg-gray-100 border border-gray-200'
                   }`}
                 >
-                  Contact
+                  <span className="relative z-10">Contact</span>
+                  {path === '/' && activeSection === 'contact' && (
+                    <span className="absolute inset-0 bg-gradient-to-r from-theme-purple to-dark-theme-purple rounded-xl animate-pulse opacity-75" />
+                  )}
                 </button>
               </li>
             </ul>

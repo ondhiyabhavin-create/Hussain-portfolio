@@ -7,6 +7,7 @@
 import React from 'react';
 
 import { Fade } from 'react-awesome-reveal';
+import { getProjectIcon } from '../components/ProjectIcons';
 
 export default function Portfolio({ data }) {
   return (
@@ -27,25 +28,35 @@ export default function Portfolio({ data }) {
           </div>
         </Fade>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 md:gap-8 max-w-6xl lg:max-w-7xl w-full">
-          {data.map((item, index) => (
-            <Fade direction="up" delay={index * 150} triggerOnce key={item.id}>
-              <div className="group bg-white rounded-2xl sm:rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform flex flex-col h-full">
-                <div className="relative overflow-hidden">
-                  <img
-                    src={item.imageUrl}
-                    alt={item.title}
-                    className="w-full h-48 sm:h-56 md:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
-                    <span className="px-2 sm:px-3 py-1 bg-theme-purple text-white rounded-full text-xs font-semibold shadow-lg">
-                      {item.type}
-                    </span>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 md:gap-8 max-w-7xl lg:max-w-[1200px] xl:max-w-[1400px] w-full">
+          {data.map((item, index) => {
+            const ProjectIcon = getProjectIcon(item.title);
+            return (
+              <Fade direction="up" delay={index * 150} triggerOnce key={item.id}>
+                <div className="group bg-white rounded-2xl sm:rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform flex flex-col h-full">
+                  <div className="relative overflow-hidden bg-gray-50">
+                    {item.imageUrl ? (
+                      <img
+                        src={item.imageUrl}
+                        alt={item.title}
+                        className="w-full h-56 sm:h-64 md:h-72 object-contain group-hover:scale-105 transition-transform duration-500"
+                      />
+                    ) : (
+                      <div className="relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
+                        <div className="w-full h-56 sm:h-64 md:h-72 flex items-center justify-center p-8 group-hover:scale-105 transition-transform duration-500">
+                          <ProjectIcon className="w-full h-full max-w-[180px] max-h-[180px]" />
+                        </div>
+                      </div>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
+                      <span className="px-2 sm:px-3 py-1 bg-theme-purple text-white rounded-full text-xs sm:text-sm font-semibold shadow-lg whitespace-nowrap">
+                        {item.type}
+                      </span>
+                    </div>
                   </div>
-                </div>
                 <div className="p-6 sm:p-7 md:p-8 flex flex-col flex-grow">
-                  <h3 className="text-xl sm:text-2xl font-bold text-theme-blue mb-2 sm:mb-3">{item.title}</h3>
+                  <h3 className="text-xl sm:text-2xl md:text-2xl font-bold text-theme-blue mb-2 sm:mb-3 break-words">{item.title}</h3>
                   {item.problem && (
                     <div className="mb-4">
                       <p className="text-sm font-semibold text-gray-500 mb-2">Challenge:</p>
@@ -76,7 +87,8 @@ export default function Portfolio({ data }) {
                 </div>
               </div>
             </Fade>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

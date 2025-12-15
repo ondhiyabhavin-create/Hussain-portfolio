@@ -1,3 +1,3 @@
 # Ashfaq Portfolio
 
-Personal portfolio website for Mohammed Ashfaq Hussain - Senior Oracle & SQL Server Database Consultant
+Personal portfolio website for Mohammed Ashfaq Hussain - Oracle RAC, Weblogic & E-Business Suite Specialist | SQL Server Expert | DevOps Automation

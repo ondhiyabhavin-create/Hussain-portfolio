@@ -23,7 +23,16 @@ export default function Hero() {
             <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl">Portfolio</span>
           </h1>
           <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-600 font-light mb-6 sm:mb-8">
-            {PersonalInfo.role}
+            {PersonalInfo.role.split('E‑Business Suite').map((part, index) => (
+              index === 0 ? (
+                <span key={`role-part-${part.slice(0, 10)}`}>
+                  {part}
+                  <span className="whitespace-nowrap">E‑Business Suite</span>
+                </span>
+              ) : (
+                <span key={`role-part-${part.slice(0, 10)}`}>{part}</span>
+              )
+            ))}
           </p>
         </Fade>
 

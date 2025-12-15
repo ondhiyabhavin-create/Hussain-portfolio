@@ -3,7 +3,7 @@
 /* eslint-disable import/extensions */
 /* eslint-disable no-console */
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 import { Fade } from 'react-awesome-reveal';
 import * as emailjs from '@emailjs/browser';
@@ -22,6 +22,7 @@ export default function Discuss() {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const hasSubmitted = useRef(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,21 +38,24 @@ export default function Discuss() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
+    if (isSubmitting || hasSubmitted.current) {
+      return;
+    }
+
     if (!formData.name || !formData.email || !formData.message) {
       toast.error('Please fill in all fields');
       return;
     }
 
     setIsSubmitting(true);
+    hasSubmitted.current = true;
 
-    // EmailJS Configuration
-    // TODO: Replace these with your EmailJS credentials
-    // Get them from: https://www.emailjs.com/
-    const serviceID = 'YOUR_SERVICE_ID'; // e.g., 'service_h4gtndg'
-    const templateID = 'YOUR_TEMPLATE_ID'; // e.g., 'template_a9tvs7a'
-    const publicKey = 'YOUR_PUBLIC_KEY'; // e.g., 'user_csqIxzN5mKsl1yw4ffJzV'
+    const serviceID = 'service_5jwgdh4';
+    const templateID = 'template_ucjxsgn';
+    const publicKey = 'YcbcdbTNalqmZsylf';
 
+    // Template parameters
     const templateParams = {
       from_name: formData.name,
       from_email: formData.email,
@@ -60,24 +64,24 @@ export default function Discuss() {
       reply_to: formData.email,
     };
 
-    // Check if EmailJS is configured
-    if (serviceID === 'YOUR_SERVICE_ID' || templateID === 'YOUR_TEMPLATE_ID' || publicKey === 'YOUR_PUBLIC_KEY') {
-      console.log('EmailJS not configured. Email would be sent with these parameters:', templateParams);
-      toast.warning('Email service not configured. Please set up EmailJS credentials.');
-      setIsSubmitting(false);
-      return;
-    }
-
-    emailjs.send(serviceID, templateID, templateParams, publicKey)
+    // Send email using single template
+    emailjs.send(
+      serviceID,
+      templateID,
+      templateParams,
+      publicKey,
+    )
       .then(() => {
-        toast.success('Message sent successfully! I\'ll get back to you soon.');
+        toast.success('Message sent successfully! Check your email for confirmation.');
         setFormData({ name: '', email: '', message: '' });
         setIsSubmitting(false);
+        hasSubmitted.current = false;
       })
       .catch((error) => {
         console.error('EmailJS Error:', error);
         toast.error('Failed to send message. Please try again or contact me directly.');
         setIsSubmitting(false);
+        hasSubmitted.current = false;
       });
   };
 
