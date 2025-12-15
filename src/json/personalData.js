@@ -71,7 +71,7 @@ export const Skills = {
   sqlServer: ['SQL Server', 'Azure SQL', 'High Availability'],
   middleware: ['WebLogic', 'Oracle Apps DBA'],
   cloud: ['OCI', 'Azure SQL', 'Cloud Migration'],
-  devops: ['Jenkins', 'GitLab CI', 'Ansible', 'Terraform'],
+  devops: ['Jenkins', 'GitLab CI', 'Ansible', 'Docker', 'Kubernetes'],
   security: ['TDE', 'Vault', 'GDPR', 'ISO', 'SOX', 'HIPAA'],
   oracleEBS: ['Oracle EBS suite', 'EBS Installation', 'EBS Patching', 'EBS Cloning'],
   oracleExadata: ['Oracle exadata', 'Exadata Administration', 'Storage Cells', 'InfiniBand'],

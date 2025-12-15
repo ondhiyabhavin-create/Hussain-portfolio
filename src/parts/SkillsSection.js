@@ -27,14 +27,14 @@ export default function SkillsSection() {
       title: 'Middleware',
       icon: '🔧',
       skills: Skills.middleware,
-      description: 'WebLogic administration and Oracle Apps DBA expertise',
+      description: 'WebLogic administration , Deployment and Oracle Apps DBA expertise',
       gradient: 'from-green-500 to-green-700',
     },
     {
       title: 'Cloud Platforms',
       icon: '☁️',
       skills: Skills.cloud,
-      description: 'OCI, Azure SQL, and cloud migration strategies',
+      description: 'OCI, AWS, Azure SQL, and cloud migration strategies',
       gradient: 'from-indigo-500 to-indigo-700',
     },
     {
@@ -66,7 +66,7 @@ export default function SkillsSection() {
       gradient: 'from-yellow-500 to-yellow-700',
     },
     {
-      title: 'Oracle Linux',
+      title: 'Linux Administration',
       icon: '💻',
       skills: Skills.oracleLinux,
       description: 'Oracle Linux system administration, kernel tuning, and security hardening',

@@ -37,7 +37,7 @@ export default function Footer() {
                   className="flex items-center space-x-2 sm:space-x-3 text-sm sm:text-base md:text-lg text-gray-600 hover:text-theme-purple transition-colors group"
                 >
                   <span className="text-lg sm:text-xl">📧</span>
-                  <span className="group-hover:underline break-all">{PersonalInfo.email}</span>
+                  <span className="group-hover:underline whitespace-nowrap">{PersonalInfo.email}</span>
                 </a>
                 {PersonalInfo.phone && (
                   <a

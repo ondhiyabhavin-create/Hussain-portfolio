@@ -134,21 +134,33 @@ export default function Advantage() {
 
                   {/* Right Column */}
                   <div className="space-y-4 sm:space-y-6">
-                    {personalInfoRight.map((item, index) => (
-                      <Zoom key={index} delay={150 + index * 50} triggerOnce>
-                        <div className="flex flex-col h-full min-h-[80px] sm:min-h-[90px] justify-center p-3 sm:p-4 rounded-xl hover:bg-gray-50 transition-colors duration-300 border border-gray-100">
-                          <div className="flex items-center mb-2">
-                            <span className="text-xl sm:text-2xl mr-2 transform hover:scale-110 transition-transform duration-300">
-                              {item.icon}
-                            </span>
-                            <h3 className="font-bold text-theme-blue text-sm sm:text-base">{item.label}:</h3>
+                    {personalInfoRight.map((item, index) => {
+                      const isEmail = item.label === 'Email' && item.value;
+                      return (
+                        <Zoom key={index} delay={150 + index * 50} triggerOnce>
+                          <div className="flex flex-col h-full min-h-[80px] sm:min-h-[90px] justify-center p-3 sm:p-4 rounded-xl hover:bg-gray-50 transition-colors duration-300 border border-gray-100">
+                            <div className="flex items-center mb-2">
+                              <span className="text-xl sm:text-2xl mr-2 transform hover:scale-110 transition-transform duration-300">
+                                {item.icon}
+                              </span>
+                              <h3 className="font-bold text-theme-blue text-sm sm:text-base">{item.label}:</h3>
+                            </div>
+                            {isEmail ? (
+                              <a
+                                href={`mailto:${item.value}`}
+                                className="text-gray-600 hover:text-theme-purple text-sm sm:text-base whitespace-nowrap pl-7 sm:pl-8 hover:underline transition-colors duration-300"
+                              >
+                                {item.value}
+                              </a>
+                            ) : (
+                              <p className="text-gray-600 text-sm sm:text-base break-words pl-7 sm:pl-8">
+                                {item.value}
+                              </p>
+                            )}
                           </div>
-                          <p className="text-gray-600 text-sm sm:text-base break-words pl-7 sm:pl-8">
-                            {item.value}
-                          </p>
-                        </div>
-                      </Zoom>
-                    ))}
+                        </Zoom>
+                      );
+                    })}
                   </div>
                 </div>
 

@@ -33,7 +33,7 @@ export const Services = [
     title: "Oracle DBA & RAC",
     imageUrl: Web,
     animation: "left",
-    description: "Oracle database administration, RAC implementation, and disaster recovery solutions",
+    description: "Oracle database administration & Implementation, RAC implementation, and disaster recovery solutions",
     detailedDescription: "Comprehensive Oracle Database Administration and Real Application Clusters (RAC) services. I provide end-to-end solutions for Oracle database management, including installation, configuration, performance tuning, and high availability setup. My expertise includes Oracle RAC implementation for zero-downtime operations, ASM (Automatic Storage Management) configuration, and disaster recovery solutions using Data Guard.",
     features: [
       "Oracle Database Installation & Configuration",
